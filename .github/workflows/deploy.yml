@@ -1,5 +1,3 @@
-# 为您的 Hugo 网站构建和部署的 GitHub Actions 工作流 (包含调试步骤)
-
 name: Build and Deploy Hugo Site
 
 on:
@@ -34,11 +32,11 @@ jobs:
       # 第 4 步：【侦探步骤】检查并列出构建结果
       - name: Check build output
         run: |
-          echo "--- Checking contents of ./public directory ---"
-          if [ -d "public" ] && [ "$(ls -A public)" ]; then
-            ls -R public
+          echo "--- Checking contents of ./hugo/public directory ---"
+          if [ -d "hugo/public" ] && [ "$(ls -A hugo/public)" ]; then
+            ls -R hugo/public
           else
-            echo "!!! CRITICAL: Build failed. The './public' directory is empty or does not exist."
+            echo "!!! CRITICAL: Build failed. The './hugo/public' directory is empty or does not exist."
             exit 1
           fi
           echo "-------------------------------------------------"
@@ -48,5 +46,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./hugo/public
           publish_branch: gh-pages
