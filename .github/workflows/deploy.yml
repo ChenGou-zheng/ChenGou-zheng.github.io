@@ -19,34 +19,27 @@ jobs:
 
     steps:
       # 第 1 步：检出（Checkout）您的源码
-      # actions/checkout@v4 是一个官方的 action，用于拉取你的代码到虚拟环境中
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
-          submodules: true  # 如果您的主题是作为 git submodule 添加的，这一行非常重要
+          submodules: true
 
       # 第 2 步：安装 Hugo
-      # peaceiris/actions-hugo@v2 是一个社区维护的、非常流行的 action，用于安装 Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest' # 自动使用最新版本的 Hugo，最省心
-          extended: true         # 很多主题都需要 Hugo 的扩展版，建议开启
+          hugo-version: 'latest'
+          extended: true
 
       # 第 3 步：构建网站
-      # 运行 hugo 命令。--minify 会压缩文件，让您的网站加载更快。
-      # Hugo 会自动将构建好的网站输出到默认的 ./public 文件夹中。
       - name: Build website
-        run: hugo --minify
+        # 核心修正：使用 --source 参数告诉 Hugo 源文件的位置在 'hugo' 文件夹
+        run: hugo --source hugo --minify
 
       # 第 4 步：部署到 GitHub Pages
-      # peaceiris/actions-gh-pages@v4 会将指定文件夹的内容推送到 gh-pages 分支
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          # 这个令牌是 GitHub 自动生成的，用于授权 action 推送代码到您的仓库
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # 指定要部署的文件夹，必须是 Hugo 构建输出的 ./public 文件夹
-          publish_dir: ./public
-          # 指定部署到的分支，gh-pages 是标准实践
+          publish_dir: ./public # Hugo 构建的结果依然会输出到根目录的 public 文件夹
           publish_branch: gh-pages
