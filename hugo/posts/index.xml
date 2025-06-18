@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on CynosurePalace</title>
+    <link>https://ChenGou-zheng.github.io/posts/</link>
+    <description>Recent content in Posts on CynosurePalace</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Jun 2025 11:26:01 +0800</lastBuildDate>
+    <atom:link href="https://ChenGou-zheng.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test</title>
+      <link>https://ChenGou-zheng.github.io/posts/test/</link>
+      <pubDate>Wed, 18 Jun 2025 11:26:01 +0800</pubDate>
+      <guid>https://ChenGou-zheng.github.io/posts/test/</guid>
+      <description>&lt;p&gt;这是我的第一篇博客文章, 当然是仅供测试, 而且相对感觉我还是太低效率了一点点.&lt;/p&gt;&#xA;&lt;p&gt;接下来要思考的是&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;如何使用自动化工具加速写作, 发布, git仓库管理流程&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;如何与obsidian仓库已有流程合并&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;如何创造强烈的个人风格? 添加 icon 或者是主题配色&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;如何添加小红书一键发布按钮&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;如何学习使用yaml头文件?&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+  </channel>
+</rss>
