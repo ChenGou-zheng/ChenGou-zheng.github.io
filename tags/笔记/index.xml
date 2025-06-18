@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CynosurePalace</title><link>https://ChenGou-zheng.github.io/</link><description>Recent content on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 18 Jun 2025 22:01:28 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>地球科学概论</title><link>https://ChenGou-zheng.github.io/lectures/eoe101-review/</link><pubDate>Wed, 18 Jun 2025 22:01:28 +0800</pubDate><guid>https://ChenGou-zheng.github.io/lectures/eoe101-review/</guid><description>&lt;h1 id="eoe101-review">EOE101 Review&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>笔记 on CynosurePalace</title><link>https://ChenGou-zheng.github.io/tags/%E7%AC%94%E8%AE%B0/</link><description>Recent content in 笔记 on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 18 Jun 2025 22:01:28 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/tags/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>地球科学概论</title><link>https://ChenGou-zheng.github.io/lectures/eoe101-review/</link><pubDate>Wed, 18 Jun 2025 22:01:28 +0800</pubDate><guid>https://ChenGou-zheng.github.io/lectures/eoe101-review/</guid><description>&lt;h1 id="eoe101-review">EOE101 Review&lt;/h1>
 &lt;p>树仁24级 / 徐政男 / 课程总评 A(96) / 论文分数：24 / Version : V1.0.0_250208_release&lt;/p>
 &lt;hr>
 &lt;h2 id="前言">前言&lt;/h2>
@@ -112,21 +112,7 @@ QQ code : 1339495928&lt;/p>&lt;/blockquote>
 &lt;li>Inside one block, everysite is near to each other within a 10mins walk.&lt;/li>
 &lt;/ul>
 &lt;p>Author: Jacob
-LastUpdateDate: 2025/05/27&lt;/p></description></item><item><title>VScode远程连接</title><link>https://ChenGou-zheng.github.io/tools/vscode%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</link><pubDate>Wed, 18 Jun 2025 18:26:21 +0800</pubDate><guid>https://ChenGou-zheng.github.io/tools/vscode%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</guid><description>&lt;h3 id="使用完整的vscode桌面版启用隧道">使用完整的VSCode桌面版启用隧道&lt;/h3>
-&lt;p>此方法需首先在远程服务器上安装完整的VSCode桌面版，具体启用方法如下。&lt;br>
-在远程服务器上的VSCode账户菜单中，选择“Turn on Remote Tunnel Access”选项。&lt;/p>
-&lt;p>&lt;a href="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083744188-1547550133.png">&lt;img src="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083744188-1547550133.png" alt="">&lt;/a>&lt;/p>
-&lt;p>此方法同样会获得一个与此远程服务器相关联的vscode.dev URL。&lt;/p>
-&lt;h2 id="在本地客户端连接安全隧道">在本地客户端连接安全隧道&lt;/h2>
-&lt;p>点击左侧的扩展按钮(或用 Ctrl+Shift+X)，搜索插件&lt;code>Remote - Tunnels&lt;/code>进行安装&lt;/p>
-&lt;p>&lt;a href="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083807468-2040033700.png">&lt;img src="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083807468-2040033700.png" alt="">&lt;/a>&lt;/p>
-&lt;p>按照下方提示登录GitHub查看注册的隧道
-已经为乐宝注册好了 Github 账号
-EloiseBabe
-L5VGfP4ky9cRQXC&lt;/p>
-&lt;p>&lt;a href="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083827498-248586091.png">&lt;img src="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083827498-248586091.png" alt="">&lt;/a>&lt;/p>
-&lt;p>按照下方提示即可连接到远程服务器&lt;/p>
-&lt;p>&lt;a href="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083848838-782567713.png">&lt;img src="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083848838-782567713.png" alt="">&lt;/a>&lt;/p></description></item><item><title>基础物理实验课程经验总结</title><link>https://ChenGou-zheng.github.io/lectures/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/</link><pubDate>Wed, 18 Jun 2025 18:26:21 +0800</pubDate><guid>https://ChenGou-zheng.github.io/lectures/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/</guid><description>&lt;h2 id="认识提升">认识提升&lt;/h2>
+LastUpdateDate: 2025/05/27&lt;/p></description></item><item><title>基础物理实验课程经验总结</title><link>https://ChenGou-zheng.github.io/lectures/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/</link><pubDate>Wed, 18 Jun 2025 18:26:21 +0800</pubDate><guid>https://ChenGou-zheng.github.io/lectures/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/</guid><description>&lt;h2 id="认识提升">认识提升&lt;/h2>
 &lt;p>个人认为这门课程是完全行政式, 应付式的必修课程, 学习本课程极大地提升了你学会&amp;quot;应付课程&amp;quot;的技巧, 以及衡量个人的投入与收获, 或许这会给你带来一个对于课程观念和小组合作等大学生活的方方面面的总体上的认知. 大体内容如下,&lt;/p>
 &lt;ol>
 &lt;li>小组合作部分: 如何领导, 引导你的队友, 如何与先人联系, 如何把握控制你的队友达到应有的水平, 不至于让你的努力白费或者是拖后腿.&lt;/li>
