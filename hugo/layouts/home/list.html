@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <div class="flex-l mt2-l">
+    <article class="pa3 pa4-ns nested-copy-line-height">
+      <h1>Welcome to wnc's note!</h1>
+      <p>My friends! / <i class="fas fa-info-circle"></i> <a href="/about/">About Me</a></p>
+
+      <section class="flex-ns flex-wrap justify-between mt5">
+        {{ range .Paginator.Pages }}
+          <div class="relative w-100 w-30-l mb4 bg-white boxed pv3 ph4 lh-solid">
+            <a href="{{ .RelPermalink }}" class="db link dark-gray f2 fw6 pt3 mb1">{{ .Title }}</a>
+            <time class="f6 db silver mb2" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+            <p class="f5 lh-copy measure mb3">{{ .Summary }}</p>
+            <a href="{{ .RelPermalink }}" title="Read more" class="ba b--moon-gray near-black br2 br--bottom dib link mt2 pb1 pt1 pr2 pl2">Read →</a>
+          </div>
+        {{ end }}
+      </section>
+
+      {{ template "_internal/pagination.html" . }}
+    </article>
+  </div>
+{{ end }}

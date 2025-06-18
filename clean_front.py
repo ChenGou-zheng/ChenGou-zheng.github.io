@@ -6,7 +6,7 @@ from pathlib import Path
 # !!! 再次确认：这是你想要修改文件的源头
 SOURCE_ROOT = Path(r"D:\desktop\Cynosure") 
 # 定义你想要删除的 frontmatter 字段的键
-KEY_TO_DELETE = "section" 
+KEY_TO_DELETE = "title" 
 # --- 配置区结束 ---
 
 def delete_key_from_files():
