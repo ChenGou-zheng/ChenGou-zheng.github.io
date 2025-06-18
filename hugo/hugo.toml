@@ -22,15 +22,15 @@ baseURL = "https://ChenGou-zheng.github.io/"
 
 [[menu.main]]
   name = "Lectures"
-  url = "/Lectures/"
+  url = "/lectures/"
   weight = 99
 
 [[menu.main]]
   name = "Summaries"
-  url = "/Summaries/"
+  url = "/summaries/"
   weight = 99
 
 [[menu.main]]
   name = "Tools"
-  url = "/Tools/"
+  url = "/tools/"
   weight = 99
