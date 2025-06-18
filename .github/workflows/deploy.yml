@@ -3,29 +3,32 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - master  # 当 main 分支有提交时触发构建
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 允许写入 GitHub Pages 分支
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout source code
+        uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: true  # 如果你用了 Hugo 主题子模块
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.147.8"   # 使用具体版本号
-          extended: true            # 确保启用 Extended 版本
+          hugo-version: '0.147.8'
+          extended: true  # 使用 Extended 版本支持 SCSS/Sass
 
       - name: Build website
-        run: hugo --source hugo --destination .
+        run: hugo --source hugo --destination .  # 构建输出到根目录
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          publish_branch: master
+          publish_dir: ./  # 输出目录为当前目录
+          publish_branch: gh-pages  # 部署到 gh-pages 分支
