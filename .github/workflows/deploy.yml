@@ -1,24 +1,20 @@
-# 为您的 Hugo 网站构建和部署的 GitHub Actions 工作流
+# 为您的 Hugo 网站构建和部署的 GitHub Actions 工作流 (包含调试步骤)
 
 name: Build and Deploy Hugo Site
 
-# 触发条件：当有代码 push 到 master 分支时自动运行
 on:
   push:
     branches:
       - master
 
-# 作业流程
 jobs:
   deploy:
-    # 指定运行此作业的操作系统
     runs-on: ubuntu-latest
-    # 授予工作流写入仓库内容的权限
     permissions:
       contents: write
 
     steps:
-      # 第 1 步：检出（Checkout）您的源码
+      # 第 1 步：检出源码
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
@@ -33,13 +29,24 @@ jobs:
 
       # 第 3 步：构建网站
       - name: Build website
-        # 核心修正：使用 --source 参数告诉 Hugo 源文件的位置在 'hugo' 文件夹
         run: hugo --source hugo --minify
 
-      # 第 4 步：部署到 GitHub Pages
+      # 第 4 步：【侦探步骤】检查并列出构建结果
+      - name: Check build output
+        run: |
+          echo "--- Checking contents of ./public directory ---"
+          if [ -d "public" ] && [ "$(ls -A public)" ]; then
+            ls -R public
+          else
+            echo "!!! CRITICAL: Build failed. The './public' directory is empty or does not exist."
+            exit 1
+          fi
+          echo "-------------------------------------------------"
+
+      # 第 5 步：部署到 GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public # Hugo 构建的结果依然会输出到根目录的 public 文件夹
+          publish_dir: ./public
           publish_branch: gh-pages
