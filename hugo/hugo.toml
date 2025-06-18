@@ -15,35 +15,22 @@ baseURL = "https://ChenGou-zheng.github.io/"
   email = "12412903@mail.sustech.edu.cn"
 
 [menu]
-  [[menu.main]]
-    name = "首页"
-    url = "/"
-    weight = 1
-  [[menu.main]]
-    name = "博客"
-    url = "/posts/"
-    weight = 2
-  [[menu.main]]
-    name = "总结"
-    url = "/summaries/"
-    weight = 3
-  [[menu.main]]
-    name = "笔记"
-    url = "/notes/"
-    weight = 4
-  [[menu.main]]
-    name = "AI"
-    url = "/ai/"
-    weight = 5
-  [[menu.main]]
-    name = "机器人"
-    url = "/robot/"
-    weight = 6
-  [[menu.main]]
-    name = "工具"
-    url = "/tools/"
-    weight = 7
-  [[menu.main]]
-    name = "标签"
-    url = "/tags/"
-    weight = 8
+[[menu.main]]
+  name = "首页"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Lectures"
+  url = "/Lectures/"
+  weight = 99
+
+[[menu.main]]
+  name = "Summaries"
+  url = "/Summaries/"
+  weight = 99
+
+[[menu.main]]
+  name = "Tools"
+  url = "/Tools/"
+  weight = 99
