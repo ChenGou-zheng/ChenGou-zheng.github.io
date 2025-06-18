@@ -3,7 +3,7 @@ name: Deploy Hugo Site
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -17,7 +17,8 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: 'latest.extended'  # ⚠️ 关键：使用 extended 版本
+          extended: true                 # 可选，双重保险
 
       - name: Build website
         run: hugo --source hugo --destination public
@@ -27,4 +28,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          publish_branch: master
+          publish_branch: main
