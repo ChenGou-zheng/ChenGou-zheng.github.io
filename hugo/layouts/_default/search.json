@@ -1,0 +1,9 @@
+[
+  {{ range $index, $page := where site.RegularPages "Section" "ne" "" }}
+    {{ if gt $index 0 }},{{ end }}
+    {
+      "title": "{{ $page.Title }}",
+      "url": "{{ $page.RelPermalink }}"
+    }
+  {{ end }}
+]

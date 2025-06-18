@@ -1,0 +1,90 @@
+{{ define "main" }}
+  <div class="pa3 pa4-ns">
+    <h1 class="f2 lh-solid mv3">所有文章</h1>
+
+    <!-- 搜索框 -->
+    <div class="mb4">
+      <input type="text" id="search-input" placeholder="🔍 输入关键词搜索文章..." class="pa2 w-100 ba b--light-silver br2">
+    </div>
+
+    <!-- 搜索结果展示 -->
+    <ul id="results-container" class="list pl0 mb4"></ul>
+
+    <!-- 文章卡片列表 -->
+    {{ $pages := slice }}
+    {{ range where site.RegularPages "Section" "ne" "" }}
+      {{ if gt .Date.Unix 0 }}
+        {{ $pages = $pages | append . }}
+      {{ else }}
+        {{ $pages = $pages | append (.) }}
+      {{ end }}
+    {{ end }}
+
+    {{ $sorted := ($pages.ByDate).Reverse }}
+
+    <div class="flex flex-wrap justify-center">
+      {{ range $sorted }}
+        <div class="w-third-l w-50 pv3 ph2">
+          <div class="ba b--light-silver br2 bg-white pa3 shadow-1 hover-bg-near-white">
+            <h2 class="f5 f4-ns fw6 lh-title mv0">
+              <a href="{{ .RelPermalink }}" class="link blue hover-dark-red">{{ .Title }}</a>
+            </h2>
+            <p class="f6 f5-ns measure lh-copy mt2 mb0">
+              {{ if .Description }}
+                {{ .Description | truncate 80 }}
+              {{ else }}
+                {{ .Summary | truncate 80 }}
+              {{ end }}
+            </p>
+            <time class="f7 ttu tracked gray db mt2">
+              {{ .Date.Format "Jan 2, 2006" }}
+            </time>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+
+    <!-- 分页 -->
+    <nav class="dt w-100 bt bb tc mw8 center">
+      {{ template "_internal/pagination.html" . }}
+    </nav>
+
+    <!-- 主题切换按钮 -->
+    <button id="theme-toggle" class="mt4 pa2 ba b--light-silver bg-white br2 pointer">🌙 切换主题</button>
+  </div>
+
+  <!-- 搜索脚本 -->
+  <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script> 
+  <script>
+    window.simpleJekyllSearch = new SimpleJekyllSearch({
+      searchInput: document.getElementById('search-input'),
+      resultsContainer: document.getElementById('results-container'),
+      jsonFile: '/search.json',
+      searchResultTemplate: '<li><a href="{url}" class="link blue hover-dark-red db pv2">{title}</a></li>',
+      noResultsText: '❌ 没有找到相关文章',
+      limit: 10,
+      fuzzy: false
+    })
+  </script>
+
+  <!-- 主题切换脚本 -->
+  <script>
+    const toggleButton = document.getElementById("theme-toggle");
+
+    function setTheme(themeName) {
+      document.documentElement.setAttribute("data-theme", themeName);
+      localStorage.setItem("theme", themeName);
+    }
+
+    toggleButton.addEventListener("click", () => {
+      let currentTheme = document.documentElement.getAttribute("data-theme");
+      let nextTheme = currentTheme === "dark" ? "light" : "dark";
+      setTheme(nextTheme);
+    });
+
+    (function () {
+      const savedTheme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      setTheme(savedTheme);
+    })();
+  </script>
+{{ end }}

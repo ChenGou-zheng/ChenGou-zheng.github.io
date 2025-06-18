@@ -1,42 +1,38 @@
 {{ define "main" }}
-  <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }}">
-    {{ .Content }}
-  </article>
+  <div class="pa3 pa4-ns">
+    <h1 class="f2 lh-solid mv3">所有文章</h1>
 
-  {{/* Define a section to pull recent posts from. For Hugo 0.20 this will default to the section with the most number of pages. */}}
-  {{ $mainSections := site.Params.mainSections | compare.Default (collections.Slice "post") }}
-  {{ $show_recent_posts := site.Params.ananke.show_recent_posts }}
-  {{ $section := collections.Where $.Site.RegularPages "Section" "in" $mainSections }}
-  {{ $section_count := len $section }}
+    {{ $pages := where site.RegularPages "Section" "ne" "" }}
+    {{ $paginator := .Paginate $pages }}
 
-  {{ if and ($show_recent_posts) (compare.Ge $section_count 1) }}
-    <div class="pa3 pa4-ns w-100 w-70-ns center">
-      {{ $n_posts := $.Param "recent_posts_number" | compare.Default 3 }}
-
-      <section class="w-100 mw8">
-        {{/* Range through the first $n_posts items of the section */}}
-        {{ range (collections.First $n_posts $section) }}
-          <div class="w-100 mb4 relative">
-            {{ .Render "summary-with-image" }}
-          </div>
-        {{ end }}
-      </section>
-
-      {{ if compare.Ge $section_count (math.Add $n_posts 1) }}
-        <section class="w-100">
-          <h1 class="f3">{{ lang.Translate "more" }}</h1>
-          {{/* Now, range through the next four after the initial $n_posts items. Nest the requirements, "after" then "first" on the outside */}}
-          {{ range (collections.First 4 (collections.After $n_posts $section))  }}
-            <h2 class="f5 fw4 mb4 dib {{ compare.Conditional (compare.Eq $.Site.Language.LanguageDirection "rtl") "ml3" "mr3" }}">
-              <a href="{{ .RelPermalink }}" class="link black dim">
-                {{ .Title }}
-              </a>
-            </h2>
-          {{ end }}
-        </section>
+    <div class="flex flex-wrap">
+      {{ range $paginator.Pages }}
+        <div class="w-third-l w-50 pv3 ph2">
+          <article class="bb b--light-silver pb3 mb3">
+            <header>
+              <h2 class="f5 f4-ns fw6 lh-title mv0">
+                <a href="{{ .RelPermalink }}" class="link blue hover-dark-red">{{ .Title }}</a>
+              </h2>
+              <time class="f6 ttu tracked gray db" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                {{ .Date.Format "Jan 2, 2006" }}
+              </time>
+            </header>
+            <section class="f6 f5-ns lh-copy measure mt2">
+              {{ if .Description }}
+                {{ .Description }}
+              {{ else }}
+                {{ .Summary }}
+              {{ end }}
+            </section>
+          </article>
+        </div>
       {{ end }}
-
     </div>
-  {{ end }}
-{{ end }}
 
+    <!-- 分页 -->
+    <nav class="dt w-100 bt bb tc mw8 center">
+      {{ template "_internal/pagination.html" . }}
+    </nav>
+
+  </div>
+{{ end }}
