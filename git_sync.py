@@ -7,6 +7,18 @@ def git_one_key_push():
     执行一键式的 Git add, commit, 和 push 操作。
     提交信息会自动格式化为当前的日期和时间。
     """
+    # --- 自动定位与验证 ---
+    # 1. 将工作目录确定为脚本所在的根目录
+    project_root = os.path.dirname(os.path.abspath(__file__))
+    os.chdir(project_root)
+    print(f"✅ 工作目录已设定为项目根目录: {project_root}")
+
+    # 2. 验证 Git 仓库
+    if not os.path.isdir('.git'):
+        print("❌ 错误: 未找到 '.git' 文件夹。请确保脚本位于 Git 仓库的根目录。")
+        sys.exit(1)
+    print("✅ Git 仓库验证通过。")
+
     try:
         # --- 步骤 1: 获取当前时间并格式化为提交信息 ---
         # 格式: YYYY-MM-DD HH:MM:SS
@@ -43,8 +55,4 @@ def git_one_key_push():
         print(f"❌ 发生未知错误: {e}")
 
 if __name__ == "__main__":
-    # 确保脚本在 Git 仓库的根目录运行
-    if not os.path.isdir('.git'):
-        print("❌ 错误：此脚本必须在 Git 仓库的根目录下运行。")
-    else:
-        git_one_key_push()
+    git_one_key_push()
