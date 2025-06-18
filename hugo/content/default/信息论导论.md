@@ -1,9 +1,10 @@
 ---
-course: ""
+course: ''
 date: 2025-06-18 18:26:21
 draft: false
 publish: true
-tags: 
+section: default
+tags: null
 title: <% tp.file.title %>
 ---
 
