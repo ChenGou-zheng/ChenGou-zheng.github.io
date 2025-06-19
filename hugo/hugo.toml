@@ -27,7 +27,7 @@ baseURL = "https://ChenGou-zheng.github.io/"
 
 [[menu.main]]
   name = "CynosurePalace"
-  url = "/CynosurePalace/"
+  url = "/cynosurepalace/"
   weight = 99
 
 [[menu.main]]
