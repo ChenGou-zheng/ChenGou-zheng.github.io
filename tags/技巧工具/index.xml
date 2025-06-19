@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技巧工具 on CynosurePalace</title><link>https://ChenGou-zheng.github.io/tags/%E6%8A%80%E5%B7%A7%E5%B7%A5%E5%85%B7/</link><description>Recent content in 技巧工具 on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 18 Jun 2025 18:26:21 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/tags/%E6%8A%80%E5%B7%A7%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml"/><item><title>VScode远程连接</title><link>https://ChenGou-zheng.github.io/tools/vscode%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</link><pubDate>Wed, 18 Jun 2025 18:26:21 +0800</pubDate><guid>https://ChenGou-zheng.github.io/tools/vscode%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</guid><description>&lt;h3 id="使用完整的vscode桌面版启用隧道">使用完整的VSCode桌面版启用隧道&lt;/h3>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技巧工具 on CynosurePalace</title><link>https://ChenGou-zheng.github.io/tags/%E6%8A%80%E5%B7%A7%E5%B7%A5%E5%85%B7/</link><description>Recent content in 技巧工具 on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 19 Jun 2025 09:06:17 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/tags/%E6%8A%80%E5%B7%A7%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml"/><item><title>网站搭建历程</title><link>https://ChenGou-zheng.github.io/cynosurepalace/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</link><pubDate>Thu, 19 Jun 2025 09:06:17 +0800</pubDate><guid>https://ChenGou-zheng.github.io/cynosurepalace/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</guid><description>&lt;h1 id="实现功能">实现功能&lt;/h1>
+&lt;ol>
+&lt;li>由obsidian 半自动化使用脚本一键发布, 同时隔离内容与网站区&lt;/li>
+&lt;/ol>
+&lt;h1 id="时间投入">时间投入&lt;/h1>
+&lt;p>较高, 花费约 7 小时, 主要在解决各种莫名其妙的 bug, 包括但不限于 :&lt;/p>
+&lt;ol>
+&lt;li>Obsidian的头文件格式混合了yaml和toml, hugo无法识别(让我的文章404not found)&lt;/li>
+&lt;li>一些头文件字段不可用, 尤其是&amp;quot;auto headings&amp;quot;, hugo不能接受空格&lt;/li>
+&lt;li>ananke切换尝试book时主题没有安全干净的删除, 于是使用脚本重置git环境&lt;/li>
+&lt;li>github workflow里的分支改为gh_pages, 而且修改输出的工作目录&lt;/li>
+&lt;li>py脚本逻辑错误, 清空132份笔记文件尝试恢复&lt;/li>
+&lt;/ol>
+&lt;h1 id="感受">感受&lt;/h1>
+&lt;p>有点像大玩具, 但是目前看下来还是有意思的, 如果能做的更高效就好了.&lt;/p>
+&lt;h1 id="技术栈">技术栈&lt;/h1>
+&lt;p>Hugo + GithubPages + obsidian + (半自动化py脚本)
+就算是新手没遇见无趣无聊的 bug, 2 小时也可以搭建好的, 具体教程可询问 AI.&lt;/p></description></item><item><title>VScode远程连接</title><link>https://ChenGou-zheng.github.io/tools/vscode%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</link><pubDate>Wed, 18 Jun 2025 18:26:21 +0800</pubDate><guid>https://ChenGou-zheng.github.io/tools/vscode%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</guid><description>&lt;h3 id="使用完整的vscode桌面版启用隧道">使用完整的VSCode桌面版启用隧道&lt;/h3>
 &lt;p>此方法需首先在远程服务器上安装完整的VSCode桌面版，具体启用方法如下。&lt;br>
 在远程服务器上的VSCode账户菜单中，选择“Turn on Remote Tunnel Access”选项。&lt;/p>
 &lt;p>&lt;a href="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083744188-1547550133.png">&lt;img src="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083744188-1547550133.png" alt="">&lt;/a>&lt;/p>

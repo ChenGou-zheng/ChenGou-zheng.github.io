@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>笔记 on CynosurePalace</title><link>https://ChenGou-zheng.github.io/tags/%E7%AC%94%E8%AE%B0/</link><description>Recent content in 笔记 on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 18 Jun 2025 22:01:28 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/tags/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>地球科学概论</title><link>https://ChenGou-zheng.github.io/lectures/eoe101-review/</link><pubDate>Wed, 18 Jun 2025 22:01:28 +0800</pubDate><guid>https://ChenGou-zheng.github.io/lectures/eoe101-review/</guid><description>&lt;h1 id="eoe101-review">EOE101 Review&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>笔记 on CynosurePalace</title><link>https://ChenGou-zheng.github.io/tags/%E7%AC%94%E8%AE%B0/</link><description>Recent content in 笔记 on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 19 Jun 2025 09:06:17 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/tags/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>网站搭建历程</title><link>https://ChenGou-zheng.github.io/cynosurepalace/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</link><pubDate>Thu, 19 Jun 2025 09:06:17 +0800</pubDate><guid>https://ChenGou-zheng.github.io/cynosurepalace/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</guid><description>&lt;h1 id="实现功能">实现功能&lt;/h1>
+&lt;ol>
+&lt;li>由obsidian 半自动化使用脚本一键发布, 同时隔离内容与网站区&lt;/li>
+&lt;/ol>
+&lt;h1 id="时间投入">时间投入&lt;/h1>
+&lt;p>较高, 花费约 7 小时, 主要在解决各种莫名其妙的 bug, 包括但不限于 :&lt;/p>
+&lt;ol>
+&lt;li>Obsidian的头文件格式混合了yaml和toml, hugo无法识别(让我的文章404not found)&lt;/li>
+&lt;li>一些头文件字段不可用, 尤其是&amp;quot;auto headings&amp;quot;, hugo不能接受空格&lt;/li>
+&lt;li>ananke切换尝试book时主题没有安全干净的删除, 于是使用脚本重置git环境&lt;/li>
+&lt;li>github workflow里的分支改为gh_pages, 而且修改输出的工作目录&lt;/li>
+&lt;li>py脚本逻辑错误, 清空132份笔记文件尝试恢复&lt;/li>
+&lt;/ol>
+&lt;h1 id="感受">感受&lt;/h1>
+&lt;p>有点像大玩具, 但是目前看下来还是有意思的, 如果能做的更高效就好了.&lt;/p>
+&lt;h1 id="技术栈">技术栈&lt;/h1>
+&lt;p>Hugo + GithubPages + obsidian + (半自动化py脚本)
+就算是新手没遇见无趣无聊的 bug, 2 小时也可以搭建好的, 具体教程可询问 AI.&lt;/p></description></item><item><title>地球科学概论</title><link>https://ChenGou-zheng.github.io/lectures/eoe101-review/</link><pubDate>Wed, 18 Jun 2025 22:01:28 +0800</pubDate><guid>https://ChenGou-zheng.github.io/lectures/eoe101-review/</guid><description>&lt;h1 id="eoe101-review">EOE101 Review&lt;/h1>
 &lt;p>树仁24级 / 徐政男 / 课程总评 A(96) / 论文分数：24 / Version : V1.0.0_250208_release&lt;/p>
 &lt;hr>
 &lt;h2 id="前言">前言&lt;/h2>
@@ -103,7 +120,7 @@ SUSTech Email : &lt;a href="mailto:12412903@mail.sustech.edu.cn">12412903@mail.s
 QQ code : 1339495928&lt;/p>&lt;/blockquote>
 &lt;p>一些建议 :&lt;/p>
 &lt;blockquote>
-&lt;p>尽早尽快地勇敢地踏上自学之路, 基本概念不需要做笔记, 学明白了再回顾理解, 希望你能够把这份笔记作为一份预习的索引或者是学习的材料, 正如我尽力提高他的质量, 而不是仅仅作为一份旧时代的笔记使用. 期末考试成绩和日常学习关系不大, 满绩与否仅仅关联你应付考试的能力. 这在大学里面太重要了, 也太令人悲伤了.&lt;/p></description></item><item><title>Guangzhou Tour Recommendations</title><link>https://ChenGou-zheng.github.io/lectures/guangzhou-tour-recommendations/</link><pubDate>Wed, 18 Jun 2025 18:26:21 +0800</pubDate><guid>https://ChenGou-zheng.github.io/lectures/guangzhou-tour-recommendations/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;p>尽早尽快地勇敢地踏上自学之路, 基本概念不需要做笔记, 学明白了再回顾理解, 希望你能够把这份笔记作为一份预习的索引或者是学习的材料, 正如我尽力提高他的质量, 而不是仅仅作为一份旧时代的笔记使用. 期末考试成绩和日常学习关系不大, 满绩与否仅仅关联你应付考试的能力. 这在大学里面太重要了, 也太令人悲伤了.&lt;/p></description></item><item><title>Guangzhou Tour Recommendations</title><link>https://ChenGou-zheng.github.io/tools/guangzhou-tour-recommendations/</link><pubDate>Wed, 18 Jun 2025 18:26:21 +0800</pubDate><guid>https://ChenGou-zheng.github.io/tools/guangzhou-tour-recommendations/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
 &lt;ul>
 &lt;li>This personal travel guide is a summary of a sweet holiday I spent with my girlfriend 🌸 romantically strolling through the vibrant city of Guangzhou.&lt;/li>
 &lt;li>In short, you’ll get a real taste of traditional Guangzhou flavor 🍜 — a unique blend of history, culture, and modern life. The itinerary includes a series of well-connected spots that can be flexibly arranged into time blocks.&lt;/li>

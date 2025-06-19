@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cynosurepalaces on CynosurePalace</title><link>https://ChenGou-zheng.github.io/cynosurepalace/</link><description>Recent content in Cynosurepalaces on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 05 Apr 2025 13:14:20 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/cynosurepalace/index.xml" rel="self" type="application/rss+xml"/><item><title>CynosurePalace</title><link>https://ChenGou-zheng.github.io/cynosurepalace/%E8%BF%99%E6%98%AF%E7%A9%BA%E6%83%B3%E4%B9%8B%E5%9C%B0/</link><pubDate>Sat, 05 Apr 2025 13:14:20 +0800</pubDate><guid>https://ChenGou-zheng.github.io/cynosurepalace/%E8%BF%99%E6%98%AF%E7%A9%BA%E6%83%B3%E4%B9%8B%E5%9C%B0/</guid><description>&lt;blockquote>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cynosurepalaces on CynosurePalace</title><link>https://ChenGou-zheng.github.io/cynosurepalace/</link><description>Recent content in Cynosurepalaces on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 19 Jun 2025 09:06:17 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/cynosurepalace/index.xml" rel="self" type="application/rss+xml"/><item><title>网站搭建历程</title><link>https://ChenGou-zheng.github.io/cynosurepalace/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</link><pubDate>Thu, 19 Jun 2025 09:06:17 +0800</pubDate><guid>https://ChenGou-zheng.github.io/cynosurepalace/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</guid><description>&lt;h1 id="实现功能">实现功能&lt;/h1>
+&lt;ol>
+&lt;li>由obsidian 半自动化使用脚本一键发布, 同时隔离内容与网站区&lt;/li>
+&lt;/ol>
+&lt;h1 id="时间投入">时间投入&lt;/h1>
+&lt;p>较高, 花费约 7 小时, 主要在解决各种莫名其妙的 bug, 包括但不限于 :&lt;/p>
+&lt;ol>
+&lt;li>Obsidian的头文件格式混合了yaml和toml, hugo无法识别(让我的文章404not found)&lt;/li>
+&lt;li>一些头文件字段不可用, 尤其是&amp;quot;auto headings&amp;quot;, hugo不能接受空格&lt;/li>
+&lt;li>ananke切换尝试book时主题没有安全干净的删除, 于是使用脚本重置git环境&lt;/li>
+&lt;li>github workflow里的分支改为gh_pages, 而且修改输出的工作目录&lt;/li>
+&lt;li>py脚本逻辑错误, 清空132份笔记文件尝试恢复&lt;/li>
+&lt;/ol>
+&lt;h1 id="感受">感受&lt;/h1>
+&lt;p>有点像大玩具, 但是目前看下来还是有意思的, 如果能做的更高效就好了.&lt;/p>
+&lt;h1 id="技术栈">技术栈&lt;/h1>
+&lt;p>Hugo + GithubPages + obsidian + (半自动化py脚本)
+就算是新手没遇见无趣无聊的 bug, 2 小时也可以搭建好的, 具体教程可询问 AI.&lt;/p></description></item><item><title>CynosurePalace</title><link>https://ChenGou-zheng.github.io/cynosurepalace/%E8%BF%99%E6%98%AF%E7%A9%BA%E6%83%B3%E4%B9%8B%E5%9C%B0/</link><pubDate>Sat, 05 Apr 2025 13:14:20 +0800</pubDate><guid>https://ChenGou-zheng.github.io/cynosurepalace/%E8%BF%99%E6%98%AF%E7%A9%BA%E6%83%B3%E4%B9%8B%E5%9C%B0/</guid><description>&lt;blockquote>
 &lt;p>为什么叫CynosurePalace呢? 网名叫陈勾, 向往北极星, 期待着一座宫殿存档自己的知识, 记忆.
 &lt;strong>事就这样成了.&lt;/strong>&lt;/p>&lt;/blockquote>
 &lt;p>不过说实话搭建这个博客对于一个技术新手来说还是蛮痛苦的, 或者说做任何不熟悉的, 舒适圈以外的事情都会是痛苦的, 但磨砺教会我们更好地做事情, 让我有勇气和能力把一年前的想法终于还是落地执行, 虽然可能简陋了一点, 但是完成远远比完美重要.&lt;/p>
