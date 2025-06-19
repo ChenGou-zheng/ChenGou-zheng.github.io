@@ -1,14 +1,44 @@
 #!/usr/bin/env python3
 import os
 import shutil
+import re
 import frontmatter
 from pathlib import Path
-from datetime import datetime, date, timezone, timedelta # 导入时区处理模块
+from datetime import datetime, date, timezone, timedelta
 
 # --- 配置区 ---
 SOURCE_ROOT = Path(r"D:\desktop\Cynosure\CynosurePalace")
 HUGO_CONTENT_ROOT = Path(r"D:\desktop\ChenGou-zheng.github.io\hugo\content")
 # --- 配置区结束 ---
+
+def fix_file(file_path):
+    text = file_path.read_text(encoding='utf-8')
+    if text.strip().startswith('+++'):
+        # 只处理 TOML Front Matter
+        pattern = re.compile(r'\+\+\+([\s\S]+?)\+\+\+')
+        match = pattern.search(text)
+        if match:
+            fm = match.group(1)
+            fixed_fm = ""
+            for line in fm.splitlines():
+                line = line.strip()
+                if not line: continue
+                if '=' in line:  # 已经是等号，跳过
+                    fixed_fm += line + "\n"
+                elif ':' in line:
+                    k, v = line.split(':', 1)
+                    k = k.strip()
+                    v = v.strip().strip('"').strip("'")
+                    if not (v.startswith('[') and v.endswith(']')):
+                        v = f'"{v}"'
+                    fixed_fm += f"{k} = {v}\n"
+            # 替换回去
+            text = text.replace(fm, "\n" + fixed_fm + "\n")
+            file_path.write_text(text, encoding='utf-8')
+
+def fix_all_toml_files(content_root):
+    for f in Path(content_root).rglob("*.md"):
+        fix_file(f)
 
 def true_sync():
     """
@@ -26,6 +56,10 @@ def true_sync():
     if not SOURCE_ROOT.is_dir():
         print(f"❗️ 错误：源目录 '{SOURCE_ROOT}' 不存在，操作已中止。")
         return
+
+    # 【新增】同步前修复目标目录所有 TOML front matter 格式
+    print("\n--- [预处理] 修复 HUGO_CONTENT_ROOT 所有 TOML front matter ---")
+    fix_all_toml_files(HUGO_CONTENT_ROOT)
 
     # --- 阶段 1: 清空并重建目标目录 ---
     print("\n--- [阶段 1/3] 清空并重建目标目录 ---")
@@ -64,24 +98,15 @@ def true_sync():
                 for key, value in post.metadata.items():
                     if key == 'publish': continue
                     
-                    # ===============================================================
-                    # --- 【强制时区功能】---
-                    # ===============================================================
                     if isinstance(value, (datetime, date)):
                         dt_value = value
-                        # 如果是 date 类型，先转为 datetime (时间设为午夜)
                         if not isinstance(dt_value, datetime):
                             dt_value = datetime.combine(dt_value, datetime.min.time())
-                        
-                        # 如果转换后的 datetime 是 "naive" (无时区信息), 则强制赋予 +08:00
                         if dt_value.tzinfo is None:
                             dt_value = dt_value.replace(tzinfo=tz_utc_8)
-                        
-                        # 现在，无论源是什么，dt_value 都带有时区，isoformat() 会包含它
                         formatted_date = dt_value.isoformat()
                         new_frontmatter_parts.append(f'{key} = {formatted_date}')
                         print(f"    - [日期格式化] '{key}' -> {formatted_date}")
-                    # ===============================================================
                     elif isinstance(value, str):
                         value_str = value.replace('"', '\\"')
                         new_frontmatter_parts.append(f'{key} = "{value_str}"')
@@ -103,6 +128,10 @@ def true_sync():
             print(f"  ❗️ 处理文件 {source_file.name} 时出错: {type(e).__name__} - {e}")
     
     print(f"✅ 同步了 {synced_count} 个文件。")
+
+    # --- 同步后再修复一遍，确保新生成的内容也符合 TOML 标准 ---
+    print("\n--- [后处理] 修复 HUGO_CONTENT_ROOT 所有 TOML front matter ---")
+    fix_all_toml_files(HUGO_CONTENT_ROOT)
 
     # --- 阶段 3: 提交并推送到 GitHub ---
     print("\n--- [阶段 3/3] 将更改提交到 GitHub ---")
