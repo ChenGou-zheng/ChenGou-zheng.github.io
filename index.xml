@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CynosurePalace</title><link>https://ChenGou-zheng.github.io/</link><description>Recent content on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 19 Jun 2025 09:06:17 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>网站搭建历程</title><link>https://ChenGou-zheng.github.io/cynosurepalace/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</link><pubDate>Thu, 19 Jun 2025 09:06:17 +0800</pubDate><guid>https://ChenGou-zheng.github.io/cynosurepalace/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</guid><description>&lt;h1 id="实现功能">实现功能&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CynosurePalace</title><link>https://ChenGou-zheng.github.io/</link><description>Recent content on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 19 Jun 2025 17:06:51 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://ChenGou-zheng.github.io/lectures/project%E9%80%9A%E5%85%B3%E6%8C%87%E5%8D%97/</link><pubDate>Thu, 19 Jun 2025 17:06:51 +0800</pubDate><guid>https://ChenGou-zheng.github.io/lectures/project%E9%80%9A%E5%85%B3%E6%8C%87%E5%8D%97/</guid><description>&lt;h1 id="前言">前言&lt;/h1>
+&lt;p>关于笔记内容:&lt;/p>
+&lt;blockquote>
+&lt;p>以下内容是我在 25Spring CS109 的项目开发过程中产生的一些记录, 结合一些经验教训, 一并总结成文. 内容重要性呈倒三角结构, 后附录的一些日志性记录可以作为一些真实状态的反应, 供同学们了解参考.&lt;/p>&lt;/blockquote>
+&lt;p>一些建议:&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Project 压力极大, 上手难度曲线陡峭, 投入时间较多&lt;/strong> ( 但是理论上能优化的很好, 但是对于笨蛋本科生来说还是太难了, 大家一定要多找学长, 多和同学聊天, 我就是闭门造车非常后悔.)(有追求的同学可以抛弃Demo的部分框架设计, 但是千万不要重复造轮子或者沉湎入自己的屎山.) 但是只要你开始 &lt;strong>Step inside and hold your position&lt;/strong>, 你就能逐渐开始了, 项目进度开始滚动, &lt;strong>事情就这样成了&lt;/strong>. &lt;strong>善战者无赫赫之功.&lt;/strong> 如果你提前了解了 maven, git, github workflow 等工具的使用, 甚至使用 Linux 系统进行开发, 了解常见的设计模式并且善于使用自动编程工具, 我相信这将会是一段轻松的时光. 不过即使不会的同学, 这一段经历我相信也弥足珍贵了.&lt;/p>&lt;/blockquote>
+&lt;p>Project 开发强度 :&lt;/p>
+&lt;blockquote>
+&lt;p>我做的工作比较多, 队友受伤了, 当时也没有学很多东西, 在 bug 的泥沼里挣扎了很久.
+高强度投入了 2周约 50 小时, 属于是最悲壮地模式了, 希望同学们引以为戒.
+Have fun please.&lt;/p>&lt;/blockquote>
+&lt;p>还想说的一句话 :&lt;/p>
+&lt;blockquote>
+&lt;p>项目就在这里, 只要你投入时间, 你将无往不利.&lt;/p></description></item><item><title>网站搭建历程</title><link>https://ChenGou-zheng.github.io/cynosurepalace/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</link><pubDate>Thu, 19 Jun 2025 09:06:17 +0800</pubDate><guid>https://ChenGou-zheng.github.io/cynosurepalace/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</guid><description>&lt;h1 id="实现功能">实现功能&lt;/h1>
 &lt;ol>
 &lt;li>由obsidian 半自动化使用脚本一键发布, 同时隔离内容与网站区&lt;/li>
 &lt;/ol>
