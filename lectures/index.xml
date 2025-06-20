@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lectures on CynosurePalace</title><link>https://ChenGou-zheng.github.io/lectures/</link><description>Recent content in Lectures on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 19 Jun 2025 17:06:51 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/lectures/index.xml" rel="self" type="application/rss+xml"/><item><title>Project通关指南</title><link>https://ChenGou-zheng.github.io/lectures/project%E9%80%9A%E5%85%B3%E6%8C%87%E5%8D%97/</link><pubDate>Thu, 19 Jun 2025 17:06:51 +0800</pubDate><guid>https://ChenGou-zheng.github.io/lectures/project%E9%80%9A%E5%85%B3%E6%8C%87%E5%8D%97/</guid><description>&lt;h1 id="前言">前言&lt;/h1>
 &lt;p>关于笔记内容:&lt;/p>
 &lt;blockquote>
-&lt;p>以下内容是我在 25Spring CS109 的项目开发过程中产生的一些记录, 结合一些经验教训, 一并总结成文. 内容重要性呈倒三角结构, 后附录的一些日志性记录可以作为一些真实状态的反应, 供同学们了解参考.&lt;/p>&lt;/blockquote>
+&lt;p>以下内容是我在 25Spring CS109 的项目开发过程中产生的一些记录, 结合一些经验教训, 一并总结成文. 内容重要性呈倒三角结构, 后附录的一些日志性记录可以作为一些真实状态的反应, 供同学们了解参考.
+总评A, Project 100.&lt;/p>&lt;/blockquote>
 &lt;p>一些建议:&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;strong>Project 压力极大, 上手难度曲线陡峭, 投入时间较多&lt;/strong> ( 但是理论上能优化的很好, 但是对于笨蛋本科生来说还是太难了, 大家一定要多找学长, 多和同学聊天, 我就是闭门造车非常后悔.)(有追求的同学可以抛弃Demo的部分框架设计, 但是千万不要重复造轮子或者沉湎入自己的屎山.) 但是只要你开始 &lt;strong>Step inside and hold your position&lt;/strong>, 你就能逐渐开始了, 项目进度开始滚动, &lt;strong>事情就这样成了&lt;/strong>. &lt;strong>善战者无赫赫之功.&lt;/strong> 如果你提前了解了 maven, git, github workflow 等工具的使用, 甚至使用 Linux 系统进行开发, 了解常见的设计模式并且善于使用自动编程工具, 我相信这将会是一段轻松的时光. 不过即使不会的同学, 这一段经历我相信也弥足珍贵了.&lt;/p>&lt;/blockquote>
@@ -10,9 +11,7 @@
 &lt;p>我做的工作比较多, 队友受伤了, 当时也没有学很多东西, 在 bug 的泥沼里挣扎了很久.
 高强度投入了 2周约 50 小时, 属于是最悲壮地模式了, 希望同学们引以为戒.
 Have fun please.&lt;/p>&lt;/blockquote>
-&lt;p>还想说的一句话 :&lt;/p>
-&lt;blockquote>
-&lt;p>项目就在这里, 只要你投入时间, 你将无往不利.&lt;/p></description></item><item><title>地球科学概论</title><link>https://ChenGou-zheng.github.io/lectures/eoe101-review/</link><pubDate>Wed, 18 Jun 2025 22:01:28 +0800</pubDate><guid>https://ChenGou-zheng.github.io/lectures/eoe101-review/</guid><description>&lt;h1 id="eoe101-review">EOE101 Review&lt;/h1>
+&lt;p>还想说的一句话 :&lt;/p></description></item><item><title>地球科学概论</title><link>https://ChenGou-zheng.github.io/lectures/eoe101-review/</link><pubDate>Wed, 18 Jun 2025 22:01:28 +0800</pubDate><guid>https://ChenGou-zheng.github.io/lectures/eoe101-review/</guid><description>&lt;h1 id="eoe101-review">EOE101 Review&lt;/h1>
 &lt;p>树仁24级 / 徐政男 / 课程总评 A(96) / 论文分数：24 / Version : V1.0.0_250208_release&lt;/p>
 &lt;hr>
 &lt;h2 id="前言">前言&lt;/h2>
@@ -112,7 +111,8 @@ Have fun please.&lt;/p>&lt;/blockquote>
 因为笔记习惯较差的原因, 最后应付考试和新学习的时候内容整理不良.&lt;/p>&lt;/blockquote>
 &lt;p>联系作者 :&lt;/p>
 &lt;blockquote>
-&lt;p>&lt;a href="https://github.com/ChenGou-zheng/CynosurePalace">个人网站与 Github&lt;/a>
+&lt;p>&lt;a href="https://github.com/ChenGou-zheng">Github&lt;/a>
+&lt;a href="https://chengou-zheng.github.io/">个人网站&lt;/a>
 SUSTech Email : &lt;a href="mailto:12412903@mail.sustech.edu.cn">12412903@mail.sustech.edu.cn&lt;/a>
 QQ code : 1339495928&lt;/p>&lt;/blockquote>
 &lt;p>一些建议 :&lt;/p>
