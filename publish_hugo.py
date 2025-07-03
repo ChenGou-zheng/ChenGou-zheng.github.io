@@ -113,7 +113,12 @@ def true_sync():
                     elif isinstance(value, bool):
                         new_frontmatter_parts.append(f'{key} = {str(value).lower()}')
                     elif isinstance(value, list):
-                        list_items = [f'"{str(item).replace("\"", "\\\"")}"' for item in value]
+                        list_items = [
+                            f'"{escaped_item}"'
+                            for item in value
+                            if isinstance(item, (str, int, float))
+                            for escaped_item in [str(item).replace('"', '\\"')]
+                        ]
                         new_frontmatter_parts.append(f'{key} = [{", ".join(list_items)}]')
                     else:
                         new_frontmatter_parts.append(f'{key} = {value}')
