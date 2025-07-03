@@ -1,18 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>归档 on CynosurePalace</title><link>https://ChenGou-zheng.github.io/tags/%E5%BD%92%E6%A1%A3/</link><description>Recent content in 归档 on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 19 Jun 2025 09:06:17 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/tags/%E5%BD%92%E6%A1%A3/index.xml" rel="self" type="application/rss+xml"/><item><title>网站搭建历程</title><link>https://ChenGou-zheng.github.io/cynosurepalace/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</link><pubDate>Thu, 19 Jun 2025 09:06:17 +0800</pubDate><guid>https://ChenGou-zheng.github.io/cynosurepalace/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</guid><description>&lt;h1 id="实现功能">实现功能&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>归档 on CynosurePalace</title><link>https://ChenGou-zheng.github.io/tags/%E5%BD%92%E6%A1%A3/</link><description>Recent content in 归档 on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 19 Jun 2025 09:06:17 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/tags/%E5%BD%92%E6%A1%A3/index.xml" rel="self" type="application/rss+xml"/><item><title>网站搭建历程</title><link>https://ChenGou-zheng.github.io/cynosurepalace/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99cynosurepalace%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</link><pubDate>Thu, 19 Jun 2025 09:06:17 +0800</pubDate><guid>https://ChenGou-zheng.github.io/cynosurepalace/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99cynosurepalace%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</guid><description>&lt;h1 id="实现功能">实现功能&lt;/h1>
+&lt;p>半自动化使用脚本一键发布, 同时隔离内容与网站区. 具体功能细节:&lt;/p>
 &lt;ol>
-&lt;li>由obsidian 半自动化使用脚本一键发布, 同时隔离内容与网站区&lt;/li>
+&lt;li>自动读取笔记头文件参数&lt;/li>
+&lt;li>自动读取内容区笔记组织结构并且在网站区设定相应结构&lt;/li>
+&lt;li>自动同步 github 仓库并触发工作流同步更新网页&lt;/li>
 &lt;/ol>
 &lt;h1 id="时间投入">时间投入&lt;/h1>
-&lt;p>较高, 花费约 7 小时, 主要在解决各种莫名其妙的 bug, 包括但不限于 :&lt;/p>
+&lt;p>较高, 花费约 7 小时, 主要在解决各种莫名其妙的 bug, 包括但不限于:&lt;/p>
 &lt;ol>
-&lt;li>Obsidian的头文件格式混合了yaml和toml, hugo无法识别(让我的文章404not found)&lt;/li>
+&lt;li>Obsidian的头文件格式&lt;strong>混合了yaml和toml&lt;/strong>, hugo无法识别(让我的文章404not found)&lt;/li>
 &lt;li>一些头文件字段不可用, 尤其是&amp;quot;auto headings&amp;quot;, hugo不能接受空格&lt;/li>
 &lt;li>ananke切换尝试book时主题没有安全干净的删除, 于是使用脚本重置git环境&lt;/li>
 &lt;li>github workflow里的分支改为gh_pages, 而且修改输出的工作目录&lt;/li>
-&lt;li>py脚本逻辑错误, 清空132份笔记文件尝试恢复&lt;/li>
+&lt;li>py脚本逻辑错误, 清空132份笔记文件尝试恢复(还好使用obsidian的git插件)&lt;/li>
+&lt;li>Obsidian创建笔记文件时设定的时间格式不统一, 秒采取百进制
+以上的大多数问题对于 Obsidian 而言是可行的且不可见的, 给问题的定位造成了很大的麻烦, 这种简单细致的设定问题 AI 也无法给出解决方案只会重复通用的解决思路. 所以建议在打通工作流的开发阶段避免完全使用 Obsidian 进行文本编辑, 正确做法是使用 VSCode 仔细检查文本内容&amp;mdash;-开发工作就是要细致准确呀.&lt;/li>
 &lt;/ol>
 &lt;h1 id="感受">感受&lt;/h1>
-&lt;p>有点像大玩具, 但是目前看下来还是有意思的, 如果能做的更高效就好了.&lt;/p>
+&lt;p>有点像大玩具, 但是目前看下来还是有意思的, 如果能做的更高效就好了. 指的是目前的自动化脚本过多, 功能过于分散, 下一步行动:&lt;/p>
+&lt;ol>
+&lt;li>合并python脚本功能, 加入触发逻辑实现真正自动化&lt;/li>
+&lt;li>更新网站页面, 增加屏幕自适应特性以适配移动端阅读体液&lt;/li>
+&lt;li>更加合理的组织网站内容&lt;/li>
+&lt;/ol>
 &lt;h1 id="技术栈">技术栈&lt;/h1>
 &lt;p>Hugo + GithubPages + obsidian + (半自动化py脚本)
 就算是新手没遇见无趣无聊的 bug, 2 小时也可以搭建好的, 具体教程可询问 AI.&lt;/p></description></item></channel></rss>
