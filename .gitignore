@@ -1,9 +1,0 @@
-# Hugo
-/public/
-/resources/
-/hugo/public/
-*.log
-.hugo_build.lock
-
-# Obsidian
-.obsidian/
