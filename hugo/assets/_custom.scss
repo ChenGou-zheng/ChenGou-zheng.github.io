@@ -1,0 +1,118 @@
+/* hugo/assets/_custom.scss */
+
+/* 1. 全局变量调整：模仿 Material for MkDocs 的色调与尺寸 */
+:root {
+  --font-size-base: 15px;      /* 稍微缩小基础字号提高总体密度 */
+  --book-menu-width: 17rem;    /* 如果菜单层级多了，稍微加宽一点侧边栏 */
+}
+
+/* 2. 侧边栏菜单：高密度与层次感 */
+.book-menu nav {
+  font-size: 0.875rem; /* 字号调小为近似 14px */
+  
+  ul {
+    padding-inline-start: 1rem; /* 更紧凑的缩进格式 */
+    margin: 0.25rem 0;
+  }
+
+  /* 去除列表默认多余的间距 */
+  li {
+    margin-bottom: 0.15rem; /* 更小的行间距 */
+    line-height: 1.6;
+  }
+
+  /* 为所有链接增加柔和的圆角与悬浮反馈 (类似 Material 风格) */
+  a {
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    color: var(--body-font-color);
+    transition: background-color 0.2s ease, color 0.2s ease;
+    
+    &:hover {
+      background-color: var(--gray-100);
+      color: var(--color-link);
+      text-decoration: none;
+    }
+    
+    /* 当前选中的高亮条目 */
+    &.active {
+      background-color: rgba(var(--color-primary-rgb), 0.1);
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+  }
+
+  /* 针对顶层菜单标题增加强调 */
+  > ul > li > a, 
+  > ul > li > span {
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gray-600);
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+    padding-left: 0; // 顶层不用左侧 Padding
+    
+    &:hover {
+      background-color: transparent; // 标题级取消悬浮底色
+    }
+  }
+}
+
+/* 适配黑暗模式的菜单悬浮颜色 */
+@media (prefers-color-scheme: dark) {
+  .book-menu nav a:hover {
+    background-color: var(--gray-800);
+  }
+}
+
+/* 3. 为首页聚合卡片增加样式 */
+.home-hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: linear-gradient(to bottom, var(--gray-100), transparent);
+  border-radius: 8px;
+  margin-bottom: 3rem;
+
+  h1 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 800; }
+  p { font-size: 1.2rem; color: var(--gray-500); max-width: 600px; margin: 0 auto; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .home-hero {
+    background: linear-gradient(to bottom, var(--gray-800), transparent);
+  }
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.home-card {
+  border: 1px solid var(--gray-200);
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  h3 { margin-top: 0; font-size: 1.2rem; }
+  p { color: var(--gray-500); font-size: 0.9rem; flex-grow: 1; }
+  a { margin-top: 1rem; font-weight: 600; text-decoration: none; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .home-card {
+    border-color: var(--gray-800);
+  }
+}
