@@ -9,6 +9,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # 应对 Node 20 弃用警告
     permissions:
       contents: write
 
@@ -24,13 +26,13 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.158.2'
+          hugo-version: 'latest' # 使用 latest 避免具体的版本号 404
           extended: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24' # 升级到 Node 24
 
       # 第 3 步：构建网站
       # 【核心修改】使用 --source 参数告诉 Hugo 在 hugo 子目录中寻找源文件。
