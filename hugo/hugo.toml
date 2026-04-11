@@ -1,4 +1,4 @@
-theme = "ananke"
+theme = "book"
 languageCode = "en-us"
 title = "CynosurePalace"
 baseURL = "https://ChenGou-zheng.github.io/" 
@@ -8,6 +8,11 @@ baseURL = "https://ChenGou-zheng.github.io/"
   author = "ChenGou"
   avatar = "/avatarMe.png"  # 放在 static/ 下
   socialIcons = true
+  BookTheme = "auto"
+  BookToC = true
+  BookSection = "*"
+  BookSearch = false
+  BookDateFormat = "2006-01-02"
 
 [params.social]
   github = "https://github.com/ChenGou-zheng" 

@@ -1,0 +1,50 @@
+<div class="book-search hidden" id="book-pagefind-wrapper">
+  <div id="book-pagefind-search"></div>
+</div>
+
+<script>
+  (function () {
+    function initPagefind() {
+      if (!window.PagefindUI || window.__bookPagefindInitialized) {
+        return;
+      }
+
+      window.__bookPagefindInitialized = true;
+      new window.PagefindUI({
+        element: "#book-pagefind-search",
+        showSubResults: true,
+        excerptLength: 20,
+        highlightParam: "highlight",
+        translations: {
+          placeholder: "搜索全文...",
+          zero_results: "没有找到结果",
+          many_results: "[COUNT] 条结果"
+        }
+      });
+
+      var wrapper = document.getElementById("book-pagefind-wrapper");
+      if (wrapper) {
+        wrapper.classList.remove("hidden");
+      }
+    }
+
+    function loadPagefindScript() {
+      if (window.PagefindUI) {
+        initPagefind();
+        return;
+      }
+
+      var script = document.createElement("script");
+      script.src = "/pagefind/pagefind-ui.js";
+      script.defer = true;
+      script.onload = initPagefind;
+      document.head.appendChild(script);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", loadPagefindScript);
+    } else {
+      loadPagefindScript();
+    }
+  })();
+</script>

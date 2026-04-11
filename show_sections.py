@@ -120,10 +120,9 @@ def main():
     print(f"📁 当前工作目录: {os.getcwd()}")
     print(f"🔧 将操作目标目录: {PROJECT_ROOT}")
 
-    ensure_dir(DEFAULT_LAYOUT_DIR)
-    create_default_list_template()
-
-    print("\n✨ 模板同步完成！现在你的每个 section 页面都会显示卡片式文章列表，并带有搜索栏和主题切换按钮。")
+  print("\n⚠️ 当前站点已迁移到 Hugo Book + Pagefind。")
+  print("⚠️ 该脚本生成的是旧版 Ananke 模板，已禁用以避免覆盖新主题布局。")
+  print("✅ 如需调整页面结构，请修改 Hugo Book 对应 partial/layout 文件。")
 
 if __name__ == "__main__":
     main()
