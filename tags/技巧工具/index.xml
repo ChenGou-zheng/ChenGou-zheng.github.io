@@ -1,42 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技巧工具 on CynosurePalace</title><link>https://ChenGou-zheng.github.io/tags/%E6%8A%80%E5%B7%A7%E5%B7%A5%E5%85%B7/</link><description>Recent content in 技巧工具 on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 19 Jun 2025 09:06:17 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/tags/%E6%8A%80%E5%B7%A7%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml"/><item><title>网站搭建历程</title><link>https://ChenGou-zheng.github.io/cynosurepalace/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99cynosurepalace%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</link><pubDate>Thu, 19 Jun 2025 09:06:17 +0800</pubDate><guid>https://ChenGou-zheng.github.io/cynosurepalace/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99cynosurepalace%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</guid><description>&lt;h1 id="实现功能">实现功能&lt;/h1>
-&lt;p>半自动化使用脚本一键发布, 同时隔离内容与网站区. 具体功能细节:&lt;/p>
-&lt;ol>
-&lt;li>自动读取笔记头文件参数&lt;/li>
-&lt;li>自动读取内容区笔记组织结构并且在网站区设定相应结构&lt;/li>
-&lt;li>自动同步 github 仓库并触发工作流同步更新网页&lt;/li>
-&lt;/ol>
-&lt;h1 id="时间投入">时间投入&lt;/h1>
-&lt;p>较高, 花费约 7 小时, 主要在解决各种莫名其妙的 bug, 包括但不限于:&lt;/p>
-&lt;ol>
-&lt;li>Obsidian的头文件格式&lt;strong>混合了yaml和toml&lt;/strong>, hugo无法识别(让我的文章404not found)&lt;/li>
-&lt;li>一些头文件字段不可用, 尤其是&amp;quot;auto headings&amp;quot;, hugo不能接受空格&lt;/li>
-&lt;li>ananke切换尝试book时主题没有安全干净的删除, 于是使用脚本重置git环境&lt;/li>
-&lt;li>github workflow里的分支改为gh_pages, 而且修改输出的工作目录&lt;/li>
-&lt;li>py脚本逻辑错误, 清空132份笔记文件尝试恢复(还好使用obsidian的git插件)&lt;/li>
-&lt;li>Obsidian创建笔记文件时设定的时间格式不统一, 秒采取百进制
-以上的大多数问题对于 Obsidian 而言是可行的且不可见的, 给问题的定位造成了很大的麻烦, 这种简单细致的设定问题 AI 也无法给出解决方案只会重复通用的解决思路. 所以建议在打通工作流的开发阶段避免完全使用 Obsidian 进行文本编辑, 正确做法是使用 VSCode 仔细检查文本内容&amp;mdash;-开发工作就是要细致准确呀.&lt;/li>
-&lt;/ol>
-&lt;h1 id="感受">感受&lt;/h1>
-&lt;p>有点像大玩具, 但是目前看下来还是有意思的, 如果能做的更高效就好了. 指的是目前的自动化脚本过多, 功能过于分散, 下一步行动:&lt;/p>
-&lt;ol>
-&lt;li>合并python脚本功能, 加入触发逻辑实现真正自动化&lt;/li>
-&lt;li>更新网站页面, 增加屏幕自适应特性以适配移动端阅读体液&lt;/li>
-&lt;li>更加合理的组织网站内容&lt;/li>
-&lt;/ol>
-&lt;h1 id="技术栈">技术栈&lt;/h1>
-&lt;p>Hugo + GithubPages + obsidian + (半自动化py脚本)
-就算是新手没遇见无趣无聊的 bug, 2 小时也可以搭建好的, 具体教程可询问 AI.&lt;/p></description></item><item><title>VScode远程连接</title><link>https://ChenGou-zheng.github.io/tools/vscode%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</link><pubDate>Wed, 18 Jun 2025 18:26:21 +0800</pubDate><guid>https://ChenGou-zheng.github.io/tools/vscode%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</guid><description>&lt;h3 id="使用完整的vscode桌面版启用隧道">使用完整的VSCode桌面版启用隧道&lt;/h3>
-&lt;p>此方法需首先在远程服务器上安装完整的VSCode桌面版，具体启用方法如下。&lt;br>
-在远程服务器上的VSCode账户菜单中，选择“Turn on Remote Tunnel Access”选项。&lt;/p>
-&lt;p>&lt;a href="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083744188-1547550133.png">&lt;img src="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083744188-1547550133.png" alt="">&lt;/a>&lt;/p>
-&lt;p>此方法同样会获得一个与此远程服务器相关联的vscode.dev URL。&lt;/p>
-&lt;h2 id="在本地客户端连接安全隧道">在本地客户端连接安全隧道&lt;/h2>
-&lt;p>点击左侧的扩展按钮(或用 Ctrl+Shift+X)，搜索插件&lt;code>Remote - Tunnels&lt;/code>进行安装&lt;/p>
-&lt;p>&lt;a href="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083807468-2040033700.png">&lt;img src="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083807468-2040033700.png" alt="">&lt;/a>&lt;/p>
-&lt;p>按照下方提示登录GitHub查看注册的隧道
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技巧工具 on CynosurePalace</title><link>https://ChenGou-zheng.github.io/tags/%E6%8A%80%E5%B7%A7%E5%B7%A5%E5%85%B7/</link><description>Recent content in 技巧工具 on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 19 Jun 2025 09:06:17 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/tags/%E6%8A%80%E5%B7%A7%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml"/><item><title>网站搭建历程</title><link>https://ChenGou-zheng.github.io/cynosurepalace/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99cynosurepalace%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</link><pubDate>Thu, 19 Jun 2025 09:06:17 +0800</pubDate><guid>https://ChenGou-zheng.github.io/cynosurepalace/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99cynosurepalace%E6%90%AD%E5%BB%BA%E5%8E%86%E7%A8%8B/</guid><description>&lt;h1 id="实现功能"&gt;实现功能&lt;a class="anchor" href="#%e5%ae%9e%e7%8e%b0%e5%8a%9f%e8%83%bd"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;半自动化使用脚本一键发布, 同时隔离内容与网站区. 具体功能细节:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;自动读取笔记头文件参数&lt;/li&gt;
+&lt;li&gt;自动读取内容区笔记组织结构并且在网站区设定相应结构&lt;/li&gt;
+&lt;li&gt;自动同步 github 仓库并触发工作流同步更新网页&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="时间投入"&gt;时间投入&lt;a class="anchor" href="#%e6%97%b6%e9%97%b4%e6%8a%95%e5%85%a5"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;较高, 花费约 7 小时, 主要在解决各种莫名其妙的 bug, 包括但不限于:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Obsidian的头文件格式&lt;strong&gt;混合了yaml和toml&lt;/strong&gt;, hugo无法识别(让我的文章404not found)&lt;/li&gt;
+&lt;li&gt;一些头文件字段不可用, 尤其是&amp;quot;auto headings&amp;quot;, hugo不能接受空格&lt;/li&gt;
+&lt;li&gt;ananke切换尝试book时主题没有安全干净的删除, 于是使用脚本重置git环境&lt;/li&gt;
+&lt;li&gt;github workflow里的分支改为gh_pages, 而且修改输出的工作目录&lt;/li&gt;
+&lt;li&gt;py脚本逻辑错误, 清空132份笔记文件尝试恢复(还好使用obsidian的git插件)&lt;/li&gt;
+&lt;li&gt;Obsidian创建笔记文件时设定的时间格式不统一, 秒采取百进制
+以上的大多数问题对于 Obsidian 而言是可行的且不可见的, 给问题的定位造成了很大的麻烦, 这种简单细致的设定问题 AI 也无法给出解决方案只会重复通用的解决思路. 所以建议在打通工作流的开发阶段避免完全使用 Obsidian 进行文本编辑, 正确做法是使用 VSCode 仔细检查文本内容&amp;mdash;-开发工作就是要细致准确呀.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="感受"&gt;感受&lt;a class="anchor" href="#%e6%84%9f%e5%8f%97"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;有点像大玩具, 但是目前看下来还是有意思的, 如果能做的更高效就好了. 指的是目前的自动化脚本过多, 功能过于分散, 下一步行动:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;合并python脚本功能, 加入触发逻辑实现真正自动化&lt;/li&gt;
+&lt;li&gt;更新网站页面, 增加屏幕自适应特性以适配移动端阅读体液&lt;/li&gt;
+&lt;li&gt;更加合理的组织网站内容&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="技术栈"&gt;技术栈&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e6%a0%88"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Hugo + GithubPages + obsidian + (半自动化py脚本)
+就算是新手没遇见无趣无聊的 bug, 2 小时也可以搭建好的, 具体教程可询问 AI.&lt;/p&gt;</description></item><item><title>VScode远程连接</title><link>https://ChenGou-zheng.github.io/tools/vscode%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</link><pubDate>Wed, 18 Jun 2025 18:26:21 +0800</pubDate><guid>https://ChenGou-zheng.github.io/tools/vscode%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</guid><description>&lt;h3 id="使用完整的vscode桌面版启用隧道"&gt;使用完整的VSCode桌面版启用隧道&lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8%e5%ae%8c%e6%95%b4%e7%9a%84vscode%e6%a1%8c%e9%9d%a2%e7%89%88%e5%90%af%e7%94%a8%e9%9a%a7%e9%81%93"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;此方法需首先在远程服务器上安装完整的VSCode桌面版，具体启用方法如下。&lt;br&gt;
+在远程服务器上的VSCode账户菜单中，选择“Turn on Remote Tunnel Access”选项。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083744188-1547550133.png"&gt;&lt;img src="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083744188-1547550133.png" alt="" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;此方法同样会获得一个与此远程服务器相关联的vscode.dev URL。&lt;/p&gt;
+&lt;h2 id="在本地客户端连接安全隧道"&gt;在本地客户端连接安全隧道&lt;a class="anchor" href="#%e5%9c%a8%e6%9c%ac%e5%9c%b0%e5%ae%a2%e6%88%b7%e7%ab%af%e8%bf%9e%e6%8e%a5%e5%ae%89%e5%85%a8%e9%9a%a7%e9%81%93"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;点击左侧的扩展按钮(或用 Ctrl+Shift+X)，搜索插件&lt;code&gt;Remote - Tunnels&lt;/code&gt;进行安装&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083807468-2040033700.png"&gt;&lt;img src="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083807468-2040033700.png" alt="" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;按照下方提示登录GitHub查看注册的隧道
 已经为乐宝注册好了 Github 账号
 EloiseBabe
-L5VGfP4ky9cRQXC&lt;/p>
-&lt;p>&lt;a href="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083827498-248586091.png">&lt;img src="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083827498-248586091.png" alt="">&lt;/a>&lt;/p>
-&lt;p>按照下方提示即可连接到远程服务器&lt;/p>
-&lt;p>&lt;a href="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083848838-782567713.png">&lt;img src="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083848838-782567713.png" alt="">&lt;/a>&lt;/p></description></item></channel></rss>
+L5VGfP4ky9cRQXC&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083827498-248586091.png"&gt;&lt;img src="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083827498-248586091.png" alt="" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;按照下方提示即可连接到远程服务器&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083848838-782567713.png"&gt;&lt;img src="https://img2023.cnblogs.com/blog/1437865/202311/1437865-20231109083848838-782567713.png" alt="" /&gt;&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
