@@ -9,7 +9,7 @@ from datetime import datetime, timezone, timedelta
 # 配置区
 # ==========================================
 # Obsidian 的原始笔记目录
-OBSIDIAN_VAULT = Path(r"D:\desktop\Cynosure\CynosurePalace")
+OBSIDIAN_VAULT = Path(r"D:\desktop\Cynosure")
 # Hugo 网站的 content 目录
 HUGO_CONTENT = Path(r"D:\desktop\ChenGou-zheng.github.io\hugo\content")
 # Hugo 网站的 static 资源目录（用于存放图片、PDF等）
