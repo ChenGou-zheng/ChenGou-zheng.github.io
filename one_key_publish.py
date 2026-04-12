@@ -12,19 +12,31 @@ from datetime import datetime, timezone, timedelta
 OBSIDIAN_VAULT = Path(r"D:\desktop\Cynosure\CynosurePalace")
 # Hugo 网站的 content 目录
 HUGO_CONTENT = Path(r"D:\desktop\ChenGou-zheng.github.io\hugo\content")
+# Hugo 网站的 static 资源目录（用于存放图片、PDF等）
+HUGO_STATIC = Path(r"D:\desktop\ChenGou-zheng.github.io\hugo\static")
 # 本项目的根目录（即 Git 仓库的根目录）
 PROJECT_ROOT = Path(r"D:\desktop\ChenGou-zheng.github.io")
 
 def sync_obsidian_to_hugo():
     """
-    步骤 1: 将 Obsidian 中标记了 `publish: true` 的文章同步到 Hugo
+    步骤 1: 将 Obsidian 中标记了 `publish: true` 的文章和静态资源同步到 Hugo
     并且将 YAML 头自动统一修正为 TOML 头格式 (+08:00 时区保护)
     """
-    print("🚀 [1/2] 开始从 Obsidian 同步文章到 Hugo...")
+    print("🚀 [1/2] 开始从 Obsidian 同步文章和静态资源到 Hugo...")
     
     if not OBSIDIAN_VAULT.is_dir():
         print(f"❗️ 错误：Obsidian 源目录 '{OBSIDIAN_VAULT}' 不存在！")
         return False
+
+    # ---- 同步特例：静态资源 (Images, PDF, etc) ----
+    print("  🔄 检查 Obsidian 中的静态资源 (static 文件夹)...")
+    source_static = OBSIDIAN_VAULT / "static"
+    if source_static.exists():
+        # 把 Obsidian/static 的内容复制整合到 Hugo/static 中
+        shutil.copytree(source_static, HUGO_STATIC, dirs_exist_ok=True)
+        print("  ✅ 成功将 Obsidian 的 static 文件同步至 Hugo")
+    else:
+        print("  ℹ️ 提示: Obsidian 里没有创建以 'static' 命名的文件夹，跳过资源库搬运。")
 
     # 清空并重建目标 content 目录，保证跟 Obsidian 完全对齐
     if HUGO_CONTENT.exists():
