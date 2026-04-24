@@ -3,7 +3,7 @@ aliases = []
 tags = ["笔记"]
 status = "publish"
 date = "2025-07-05 15:07"
-lastmod = "2026-04-23 18:04"
+lastmod = "2026-04-24 21:04"
 +++
 
 # Introduction
@@ -23,7 +23,7 @@ LastUpdateDate: 2025/05/27
 
 ## Religion Sites and Community Life
 
-![[Pasted image 20250527210901.png|173]]
+![[Pasted image 20250527210901.png]]
 
 | Chinese Name | English Name                                 | Type              |
 | ------------ | -------------------------------------------- | ----------------- |

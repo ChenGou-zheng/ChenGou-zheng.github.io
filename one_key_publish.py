@@ -17,6 +17,9 @@ HUGO_STATIC = Path(r"D:\desktop\ChenGou-zheng.github.io\hugo\static")
 # 本项目的根目录（即 Git 仓库的根目录）
 PROJECT_ROOT = Path(r"D:\desktop\ChenGou-zheng.github.io")
 
+# Obsidian 中用于图片引用的附件目录名（会同步到 hugo/static/attachments）
+ATTACHMENTS_DIRNAME = "attachments"
+
 def sync_obsidian_to_hugo():
     """
     步骤 1: 将 Obsidian 中标记了 `publish: true` 的文章和静态资源同步到 Hugo
@@ -37,6 +40,16 @@ def sync_obsidian_to_hugo():
         print("  ✅ 成功将 Obsidian 的 static 文件同步至 Hugo")
     else:
         print("  ℹ️ 提示: Obsidian 里没有创建以 'static' 命名的文件夹，跳过资源库搬运。")
+
+    print(f"  🔄 检查 Obsidian 中的附件目录 ({ATTACHMENTS_DIRNAME})...")
+    source_attachments = OBSIDIAN_VAULT / ATTACHMENTS_DIRNAME
+    target_attachments = HUGO_STATIC / ATTACHMENTS_DIRNAME
+    if source_attachments.exists():
+        # 把 Obsidian/attachments 同步到 Hugo/static/attachments，避免图片链接失效
+        shutil.copytree(source_attachments, target_attachments, dirs_exist_ok=True)
+        print("  ✅ 成功将 Obsidian 的 attachments 文件同步至 Hugo/static/attachments")
+    else:
+        print(f"  ℹ️ 提示: Obsidian 中未找到 '{ATTACHMENTS_DIRNAME}' 文件夹，跳过附件搬运。")
 
     # 清空并重建目标 content 目录，保证跟 Obsidian 完全对齐
     if HUGO_CONTENT.exists():

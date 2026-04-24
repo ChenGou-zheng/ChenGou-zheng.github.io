@@ -12,7 +12,9 @@
 
 ### 1. 写作与图片管理 (在 Obsidian 中)
 1. 在本地的 Obsidian 仓库中正常写作、记录。
-2. 支持图片、PDF等多媒体资源插入：直接将它们丢进 Obsidian 根目录下的 `static` 文件夹即可。
+2. 支持图片、PDF等多媒体资源插入：
+  - 通用静态资源放在 Obsidian 根目录下的 `static` 文件夹。
+  - 文内图片引用（如 Obsidian 附件）放在 Obsidian 根目录下的 `attachments` 文件夹。
 3. 当你觉得某篇文章写好了、准备对外发布时，只需要在该文章的 Markdown 头部（Front Matter）加上：
    ```yaml
    ---
@@ -30,7 +32,7 @@ uv run .\one_key_publish.py
 * **清空重建：** 清理 `hugo/content` 和对应资源。
 * **文件同步：** 扫描你 Obsidian 仓库中的所有 Markdown，筛选出带有 `publish: true` 的文章。
 * **格式转换：** 修正含有格式错误的时间字段（转为标准字符串），并将 YAML 头统一强制转为 Hugo 最好解析的 TOML 格式 (+08:00 时区保护)。
-* **资源同步：** 将 Obsidian 里的 `static` 文件夹及其内部的截图、PDF 原封不动搬运至 `hugo/static/` 资源库。
+* **资源同步：** 将 Obsidian 里的 `static` 同步到 `hugo/static/`，并将 `attachments` 同步到 `hugo/static/attachments/`，避免图片引用失效。
 * **Git 发布：** 自动执行 `git add`, `git commit` 以及 `git push` 到 GitHub，触发 GitHub Actions 编译部署上线。
 
 *(注：旧版的 `publish_hugo.py`、`menu.py`、`git_sync.py` 已完全废弃并被此脚本取代。)*
