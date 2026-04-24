@@ -20,6 +20,52 @@ PROJECT_ROOT = Path(r"D:\desktop\ChenGou-zheng.github.io")
 # Obsidian 中用于图片引用的附件目录名（会同步到 hugo/static/attachments）
 ATTACHMENTS_DIRNAME = "attachments"
 
+
+def normalize_hugo_datetime(value, default_tz):
+    """
+    将 Obsidian/Front Matter 中可能出现的日期值归一化为 Hugo 可解析的 RFC3339。
+    返回 ISO8601 字符串（含时区），无法解析时返回 None。
+    """
+    if isinstance(value, datetime):
+        dt = value
+    elif isinstance(value, str):
+        raw = value.strip().strip('"').strip("'")
+        if not raw:
+            return None
+
+        # 优先尝试 ISO 格式（兼容结尾 Z）
+        try:
+            dt = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+        except ValueError:
+            dt = None
+
+        # 回退：兼容常见 Obsidian/Linter 时间格式
+        if dt is None:
+            for fmt in (
+                "%Y-%m-%d %H:%M:%S",
+                "%Y-%m-%d %H:%M",
+                "%Y-%m-%d",
+                "%Y/%m/%d %H:%M:%S",
+                "%Y/%m/%d %H:%M",
+                "%Y/%m/%d",
+            ):
+                try:
+                    dt = datetime.strptime(raw, fmt)
+                    break
+                except ValueError:
+                    continue
+
+        if dt is None:
+            return None
+    else:
+        return None
+
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=default_tz)
+
+    # Hugo/TOML datetime literal 需要 RFC3339 形式
+    return dt.isoformat(timespec="seconds")
+
 def sync_obsidian_to_hugo():
     """
     步骤 1: 将 Obsidian 中标记了 `publish: true` 的文章和静态资源同步到 Hugo
@@ -95,12 +141,13 @@ def sync_obsidian_to_hugo():
                     if value is None or value == "":
                         continue
                     
-                    # 日期时区处理
-                    if isinstance(value, datetime):
-                        if value.tzinfo is None:
-                            value = value.replace(tzinfo=tz_utc_8)
-                        value = value.isoformat()
-                        new_frontmatter_parts.append(f'{hugo_key} = {value}')
+                    # Hugo 的 date/lastmod 必须是可解析的日期，统一规范为 RFC3339
+                    if hugo_key in {'date', 'lastmod'}:
+                        normalized_dt = normalize_hugo_datetime(value, tz_utc_8)
+                        if not normalized_dt:
+                            print(f"  ⚠️ 跳过不可解析日期字段: {relative_path} -> {hugo_key}={value}")
+                            continue
+                        new_frontmatter_parts.append(f'{hugo_key} = {normalized_dt}')
                         continue
                     
                     # 字符串转义（Linter处理了换行，因此只要简单处理嵌套双引号并加引号即可）
