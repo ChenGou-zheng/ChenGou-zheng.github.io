@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>待处理 on CynosurePalace</title><link>https://ChenGou-zheng.github.io/tags/%E5%BE%85%E5%A4%84%E7%90%86/</link><description>Recent content in 待处理 on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 23 Apr 2026 18:04:00 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/tags/%E5%BE%85%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://ChenGou-zheng.github.io/%E4%BF%A1%E6%81%AF%E8%AE%BA%E5%AF%BC%E8%AE%BA/</link><pubDate>Sat, 05 Jul 2025 15:07:00 +0800</pubDate><guid>https://ChenGou-zheng.github.io/%E4%BF%A1%E6%81%AF%E8%AE%BA%E5%AF%BC%E8%AE%BA/</guid><description>&lt;h1 id="信息学导论"&gt;信息学导论&lt;a class="anchor" href="#%e4%bf%a1%e6%81%af%e5%ad%a6%e5%af%bc%e8%ae%ba"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="香农定理与理解"&gt;香农定理与理解&lt;a class="anchor" href="#%e9%a6%99%e5%86%9c%e5%ae%9a%e7%90%86%e4%b8%8e%e7%90%86%e8%a7%a3"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;香农第一定理（可变长无失真信源编码定理)
+&lt;ol&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;一段信息的信息量是固定的，这称为这段信息的信息熵（H）&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;无论怎么压缩，信息熵是无失真信源编码的极限值&lt;/strong&gt;（类似光速）
+&lt;ol&gt;
+&lt;li&gt;huffman 编码原理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;若编码的平均码长小于信息熵值，必然发生差错（也就是有损）&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;香农第二定理（有噪信道编码定理）
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;傅里叶公式能把时间信息变成频谱信息&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;_ 数学公式的信噪比 _&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;香农第三定理（保失真度准则下的有失真信源编码定理）
+&lt;ol&gt;
+&lt;li&gt;总能找到一种有效的编码方法，让信息的传输率接近信道容量时而不出错，出错指的是无法传输出去，接受一定的失真&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;第一定律定死了信息无损压缩的极限值，第二定律定死了最大容量，而第三定理，讲得是如何在这些限制下，让通信不出错&lt;/p&gt;
+&lt;p&gt;![[Pasted image 20250303202615.png]]&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.zhihu.com/question/447161080/answer/1759158425"&gt;https://www.zhihu.com/question/447161080/answer/1759158425&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="定义信息量的本质"&gt;定义信息量的本质&lt;a class="anchor" href="#%e5%ae%9a%e4%b9%89%e4%bf%a1%e6%81%af%e9%87%8f%e7%9a%84%e6%9c%ac%e8%b4%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;使用二进制的原因&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;工程实用性&lt;/strong&gt;：二进制是数字通信与计算机的基础（0/1、开关、电压高低）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数学简洁性&lt;/strong&gt;：使用 log₂ 时，熵值 H(X)H(X) 直接表示“平均所需二进制位数”，例如：&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;与编码效率关联&lt;/strong&gt;
+信息量度量的是一个具体事件发生了所带来的信息，而熵则是在结果出来之前对可能产生的信息量的期望——考虑该随机变量的所有可能取值，即所有可能发生事件所带来的信息量的 期望。说白了，信息熵就是信息量的数学期望&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="如何证明信息是可以量化的"&gt;如何证明信息是可以量化的？&lt;a class="anchor" href="#%e5%a6%82%e4%bd%95%e8%af%81%e6%98%8e%e4%bf%a1%e6%81%af%e6%98%af%e5%8f%af%e4%bb%a5%e9%87%8f%e5%8c%96%e7%9a%84"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;公理 1：连续性&lt;/strong&gt;&lt;br&gt;
+熵 H(p1,p2,…,pn)H(p1​,p2​,…,pn​) 是概率分布 {pi}{pi​} 的连续函数，即概率微小变化不会导致熵剧烈波动。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;公理 2：等概率极值性&lt;/strong&gt;&lt;br&gt;
+当所有事件等概率（即 pi=1npi​=n1​）时，熵随 nn 单调增加。例如：
+&lt;ul&gt;
+&lt;li&gt;抛硬币（n=2）熵为 1 比特，骰子（n=6）熵为 log⁡26≈2.58log2​6≈2.58 比特。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;公理 3：可加性&lt;/strong&gt;&lt;br&gt;
+若一个随机事件可分解为多个独立步骤，总熵等于各步骤熵之和。
+&lt;strong&gt;结论&lt;/strong&gt;：唯一满足上述公理的函数形式为 H(X)=−k∑pilog⁡piH(X)=−k∑pi​logpi​，其中 kk 为常数（通常取 1，单位由对数底决定）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="boolean-algebra"&gt;Boolean Algebra&lt;a class="anchor" href="#boolean-algebra"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;用于进行逻辑运算的数学结构，离散数学中产生，与二进制紧密关联，使用公式结构表示逻辑
+基于集合论的基础
+属于高等代数内容，数理逻辑导论&lt;/p&gt;
+&lt;h1 id="文学社会类"&gt;文学社会类&lt;a class="anchor" href="#%e6%96%87%e5%ad%a6%e7%a4%be%e4%bc%9a%e7%b1%bb"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="post-modern"&gt;Post-modern&lt;a class="anchor" href="#post-modern"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;对现代主义的怀疑和背离，相信去中心化，对传统的观念思考进行解构和挑战，强调多样性的同时分析语言和符号的建构&lt;/p&gt;
+&lt;h2 id="modern"&gt;Modern&lt;a class="anchor" href="#modern"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;对传统的突破和创新，追求一种普遍的真理和进步，相信可以通过科学技术、理性思维解决社会问题，相信社会史不断发展进步的，相信存在普遍真理的乐观态度，人类中心地位。&lt;/p&gt;</description></item></channel></rss>
