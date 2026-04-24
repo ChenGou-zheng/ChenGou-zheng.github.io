@@ -49,9 +49,18 @@ def sync_obsidian_to_hugo():
 
     for source_file in source_files:
         try:
-            # 读取 frontmatter 判断是否需要发布
-            post = frontmatter.load(source_file)
+            # 预读取内容，使用正则修复不合规的日期格式（如秒数超过 59）
+            # 我们将所有的 date 和 lastmod 属性强制转为字符串处理，提升兼容性
+            with open(source_file, 'r', encoding='utf-8') as f:
+                raw_text = f.read()
             
+            # 使用正则将 date: 2026-04-12 15:30:88 这样的格式强制包裹层引号变为字符串
+            raw_text = re.sub(r'^(date|lastmod|created|updated):\s*([^"\'\n\[\{]+)$', r'\1: "\2"', raw_text, flags=re.MULTILINE)
+            
+            # 从修复后的纯文本加载 frontmatter
+            post = frontmatter.loads(raw_text)
+            
+            # 使用 publish: true 来判断是否发布
             if post.metadata.get("publish") is True:
                 relative_path = source_file.relative_to(OBSIDIAN_VAULT)
                 target_file = HUGO_CONTENT / relative_path
@@ -60,7 +69,17 @@ def sync_obsidian_to_hugo():
                 # 手动构建严格的 TOML Front Matter
                 new_frontmatter_parts = ['+++']
                 for key, value in post.metadata.items():
+                    # 我们过滤掉 publish 属性即可，如果有 status 想保留也可以，这里默认将无需输出 Hugo 的系统键过滤
                     if key == 'publish': 
+                        continue
+                    
+                    # 将 Obsidian Linter 生成的 created/updated 映射为 Hugo 的 date/lastmod 原生字段
+                    hugo_key = key
+                    if key == 'created': hugo_key = 'date'
+                    if key == 'updated': hugo_key = 'lastmod'
+
+                    # 忽略无效的空值，避免写进 TOML 报错
+                    if value is None or value == "":
                         continue
                     
                     # 日期时区处理
@@ -68,22 +87,24 @@ def sync_obsidian_to_hugo():
                         if value.tzinfo is None:
                             value = value.replace(tzinfo=tz_utc_8)
                         value = value.isoformat()
-                        new_frontmatter_parts.append(f'{key} = {value}')
+                        new_frontmatter_parts.append(f'{hugo_key} = {value}')
                         continue
                     
-                    # 字符串转义
+                    # 字符串转义（Linter处理了换行，因此只要简单处理嵌套双引号并加引号即可）
                     if isinstance(value, str):
-                        # 处理带换行的字符串或者引号
                         value = value.replace('"', '\\"')
-                        new_frontmatter_parts.append(f'{key} = "{value}"')
+                        new_frontmatter_parts.append(f'{hugo_key} = "{value}"')
                     elif isinstance(value, list):
-                        # 处理 tags 和 categories 列表
-                        list_str = ", ".join([f'"{str(item)}"' for item in value])
-                        new_frontmatter_parts.append(f'{key} = [{list_str}]')
+                        # 处理 tags 和 categories 空列表和内容的渲染
+                        list_str = ", ".join([f'"{str(item)}"' for item in value if item])
+                        if list_str:
+                            new_frontmatter_parts.append(f'{hugo_key} = [{list_str}]')
+                        else:
+                            new_frontmatter_parts.append(f'{hugo_key} = []')
                     elif isinstance(value, bool):
-                        new_frontmatter_parts.append(f'{key} = {"true" if value else "false"}')
+                        new_frontmatter_parts.append(f'{hugo_key} = {"true" if value else "false"}')
                     else:
-                        new_frontmatter_parts.append(f'{key} = {value}')
+                        new_frontmatter_parts.append(f'{hugo_key} = {value}')
                         
                 new_frontmatter_parts.append('+++')
                 new_frontmatter_text = '\n'.join(new_frontmatter_parts)

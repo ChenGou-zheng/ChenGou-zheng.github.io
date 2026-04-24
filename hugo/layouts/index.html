@@ -12,39 +12,39 @@
       </div>
     </div>
 
-    <h2>快速导航分类</h2>
-    <!-- 聚合区块：卡片式入口（灵感来自 Material for MkDocs 和 Lotus） -->
+    <h2>🏷️ 热点标签分类</h2>
+    <!-- 我们不再写死 Lectures 这种通过文件夹分类的方式，而是循环所有的标签(tags) -->
     <div class="home-grid">
+      {{ $tags := .Site.Taxonomies.tags.ByCount }}
+      {{ range first 6 $tags }} <!-- 取文章数量最多的前 6 个 tag 画成卡片 -->
       <div class="home-card">
-        <h3>📚 课程笔记 (Lectures)</h3>
-        <p>包含 CS109 计算机程序设计、信息论导论、物理实验等核心课程的系统性笔记总结。</p>
-        <a href="/lectures/">进入浏览 →</a>
+        <h3># {{ .Name }}</h3>
+        <p>累计包含 {{ .Count }} 篇相关主题的笔记与文章。</p>
+        <a href="{{ "/tags/" | relLangURL }}{{ .Name | urlize }}/">查看该标签下所有文章 →</a>
       </div>
-      
-      <div class="home-card">
-        <h3>💡 总结与思考 (Summaries)</h3>
-        <p>个人关于互联网革新、写作阅读方法论、地理学习思维体系的深度思考。</p>
-        <a href="/summaries/">进入浏览 →</a>
-      </div>
-
-      <div class="home-card">
-        <h3>🛠️ 工具与历程 (Tools)</h3>
-        <p>记录网站搭建过程、VSCode 远程配置、活动申请等实用性踩坑经验。</p>
-        <a href="/tools/">进入浏览 →</a>
-      </div>
+      {{ end }}
     </div>
 
-    <!-- 最近更新的文章列表 -->
+    <!-- 最近更新的文章列表 (无视目录，只要是被 tag 标记了或者是 Markdown 全站最近更新的) -->
     <h2 style="margin-top: 4rem;">最近更新</h2>
     <ul class="book-posts" style="list-style: none; padding: 0;">
-      {{ $pages := where .Site.RegularPages "Section" "in" (slice "lectures" "summaries" "content" "tools") }}
-      {{ range first 5 $pages.ByDate.Reverse }}
+      <!-- 我们直接拿全站的所有文章，不再根据以前的 Section 判断了 -->
+      {{ $pages := where .Site.RegularPages "Type" "in" (slice "page" "post") }}
+      <!-- 获取所有的合法页面，排除自动生成的各种 list / tag 索引自身 -->
+      {{ range first 5 .Site.RegularPages.ByDate.Reverse }}
       <li style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--gray-200);">
         <h3 style="margin: 0 0 0.5rem 0;">
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         </h3>
+        <!-- 展示该篇笔记的 Tags -->
         <div style="font-size: 0.85rem; color: var(--gray-500); margin-bottom: 0.5rem;">
-          📅 {{ .Date.Format "2006-01-02" }} | 📂 {{ .Section | title }}
+          📅 {{ .Date.Format "2006-01-02" }} 
+          {{ with .Params.tags }}
+            | 🏷️
+            {{ range . }}
+              <a href="/tags/{{ . | urlize }}/">#{{ . }}</a>
+            {{ end }}
+          {{ end }}
         </div>
         {{ if .Summary }}
           <p style="margin: 0; font-size: 0.95rem; color: var(--body-font-color);">{{ .Summary | plainify | truncate 120 }}</p>

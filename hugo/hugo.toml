@@ -10,7 +10,8 @@ baseURL = "https://ChenGou-zheng.github.io/"
   socialIcons = true
   BookTheme = "auto"
   BookToC = true
-  BookSection = "*"
+  # BookSection 决定左侧侧边栏渲染哪个文件夹，如果为空则侧边栏留给我们的自定义 Tag 列表
+  BookSection = "none" 
   BookSearch = false
   BookDateFormat = "2006-01-02"
 
@@ -18,29 +19,3 @@ baseURL = "https://ChenGou-zheng.github.io/"
   github = "https://github.com/ChenGou-zheng" 
   qq = "1339495928" 
   email = "12412903@mail.sustech.edu.cn"
-
-[menu]
-[[menu.main]]
-  name = "首页"
-  url = "/"
-  weight = 1
-
-[[menu.main]]
-  name = "总结"
-  url = "/summaries/"
-  weight = 3
-
-[[menu.main]]
-  name = "工具"
-  url = "/tools/"
-  weight = 7
-
-[[menu.main]]
-  name = "Cynosurepalace"
-  url = "/cynosurepalace/"
-  weight = 99
-
-[[menu.main]]
-  name = "Lectures"
-  url = "/lectures/"
-  weight = 99

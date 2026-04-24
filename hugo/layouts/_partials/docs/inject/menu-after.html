@@ -1,0 +1,13 @@
+<!-- 自定义 Tag 侧边栏菜单 -->
+<div style="margin-top: 1rem; border-top: 1px solid var(--gray-200); padding-top: 1rem;">
+  <strong>🏷️ 所有标签 (Tags)</strong>
+  <ul style="list-style: none; padding-left: 0; margin-top: 0.5rem;">
+    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+    <li style="margin-bottom: 0.25rem;">
+      <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}" class="link">
+        #{{ $name }} <span style="color: var(--gray-500); font-size: 0.8rem;">({{ $taxonomy.Count }})</span>
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+</div>
