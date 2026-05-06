@@ -6,7 +6,10 @@
   <h3>{{ partial "docs/title" . }}</h3>
 
   <div class="header-actions">
-    <div id="header-pagefind-search"></div>
+    <div class="header-search-wrap">
+      <img src="{{ partial "docs/icon" "search" }}" class="search-icon" alt="Search" />
+      <div id="header-pagefind-search"></div>
+    </div>
     <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme" title="切换明暗主题">
       <span class="theme-icon-light">☀️</span>
       <span class="theme-icon-dark">🌙</span>
