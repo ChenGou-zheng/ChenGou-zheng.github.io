@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Report on CynosurePalace</title><link>https://ChenGou-zheng.github.io/tags/report/</link><description>Recent content in Report on CynosurePalace</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 06 May 2026 09:57:28 +0800</lastBuildDate><atom:link href="https://ChenGou-zheng.github.io/tags/report/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://ChenGou-zheng.github.io/resources/%E5%A4%A7%E6%95%B0%E6%8D%AEproject/</link><pubDate>Sun, 12 Apr 2026 10:56:34 +0800</pubDate><guid>https://ChenGou-zheng.github.io/resources/%E5%A4%A7%E6%95%B0%E6%8D%AEproject/</guid><description>&lt;h1 id="readme"&gt;README&lt;a class="anchor" href="#readme"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;这里是 STA323 大数据分析课程的 Project 1 report. 主要的工作内容是:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;学习了解 OpenClaw 架构原理, 并时间 Text2sql 技术.&lt;/li&gt;
+&lt;li&gt;利用 agent 或者 claw 工具完成数据分析.&lt;/li&gt;
+&lt;li&gt;复现学习生存分析基本方案, 对电信客户流失案例作分析.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href="https://ChenGou-zheng.github.io/static/docs/bigdataanalysis-project1.pdf"&gt;点击这里下载 pdf 版本&lt;/a&gt;&lt;/p&gt;
+&lt;iframe src="https://ChenGou-zheng.github.io/static/docs/bigdataanalysis-project1.pdf" width="100%" height="600px" style="border: none;"&gt;
+ &lt;p&gt;您的浏览器不支持 PDF 预览。&lt;a href="https://ChenGou-zheng.github.io/static/docs/bigdataanalysis-project1.pdf"&gt;点击这里下载 PDF 文件&lt;/a&gt;。&lt;/p&gt;
+&lt;/iframe&gt;</description></item></channel></rss>
