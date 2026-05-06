@@ -186,9 +186,28 @@ def sync_obsidian_to_hugo():
                 new_frontmatter_parts.append("+++")
                 new_frontmatter_text = "\n".join(new_frontmatter_parts)
 
+                # 转换 Obsidian wiki-link 图片语法 → 标准 Markdown
+                # ![[image.png]]      → ![](/attachments/image.png)
+                # ![[image.png|200]]  → ![](/attachments/image.png)
+                content = post.content
+                content = re.sub(
+                    r'!\[\[([^\]]+)\]\]',
+                    lambda m: f'![](/attachments/{m.group(1).split("|")[0].strip()})',
+                    content,
+                )
+
+                # 转换 /static/ 路径引用 → 根路径（Hugo static/ 映射到站点根）
+                # src="/static/docs/x.pdf" → src="/docs/x.pdf"
+                # href="/static/..."      → href="/..."
+                content = re.sub(
+                    r'(src|href)=["\']/static/',
+                    r'\1="/',
+                    content,
+                )
+
                 # 写入目标文件
                 with open(target_file, "w", encoding="utf-8") as f:
-                    f.write(new_frontmatter_text + "\n\n" + post.content)
+                    f.write(new_frontmatter_text + "\n\n" + content)
 
                 synced_count += 1
                 print(f"  ✅ 同步成功: {relative_path}")

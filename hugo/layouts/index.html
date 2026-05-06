@@ -7,33 +7,30 @@
       <p>{{ .Site.Params.description }}</p>
     </div>
 
-    <h2>🏷️ 热点标签分类</h2>
-    <!-- 我们不再写死 Lectures 这种通过文件夹分类的方式，而是循环所有的标签(tags) -->
-    <div class="home-grid">
+    <!-- Map of Content (来自 _index.md) -->
+    {{ .Content }}
+
+    <!-- 热点标签：横向徽章 -->
+    <h2 style="margin-top: 3rem;">🏷️ 热点标签</h2>
+    <div class="home-tags">
       {{ $tags := .Site.Taxonomies.tags.ByCount }}
-      {{ range first 6 $tags }} <!-- 取文章数量最多的前 6 个 tag 画成卡片 -->
-      <div class="home-card">
-        <h3># {{ .Name }}</h3>
-        <p>累计包含 {{ .Count }} 篇相关主题的笔记与文章。</p>
-        <a href="{{ "/tags/" | relLangURL }}{{ .Name | urlize }}/">查看该标签下所有文章 →</a>
-      </div>
+      {{ range first 6 $tags }}
+      <a href="{{ "/tags/" | relLangURL }}{{ .Name | urlize }}/" class="home-tag-badge">
+        #{{ .Name }} <span class="home-tag-count">{{ .Count }}</span>
+      </a>
       {{ end }}
     </div>
 
-    <!-- 最近更新的文章列表 (无视目录，只要是被 tag 标记了或者是 Markdown 全站最近更新的) -->
-    <h2 style="margin-top: 4rem;">最近更新</h2>
+    <!-- 最近更新 -->
+    <h2 style="margin-top: 3rem;">📝 最近更新</h2>
     <ul class="book-posts" style="list-style: none; padding: 0;">
-      <!-- 我们直接拿全站的所有文章，不再根据以前的 Section 判断了 -->
-      {{ $pages := where .Site.RegularPages "Type" "in" (slice "page" "post") }}
-      <!-- 获取所有的合法页面，排除自动生成的各种 list / tag 索引自身 -->
-      {{ range first 5 .Site.RegularPages.ByDate.Reverse }}
-      <li style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--gray-200);">
+      {{ range first 5 .Site.RegularPages.ByLastmod.Reverse }}
+      <li style="margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid var(--gray-200);">
         <h3 style="margin: 0 0 0.5rem 0;">
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         </h3>
-        <!-- 展示该篇笔记的 Tags -->
         <div style="font-size: 0.85rem; color: var(--gray-500); margin-bottom: 0.5rem;">
-          📅 {{ .Date.Format "2006-01-02" }} 
+          📅 {{ .Lastmod.Format "2006-01-02" }}
           {{ with .Params.tags }}
             | 🏷️
             {{ range . }}
@@ -47,9 +44,6 @@
       </li>
       {{ end }}
     </ul>
-    
-    <!-- 渲染原首页里的文章文字（如果有） -->
-    {{ .Content }}
   </article>
 </main>
 {{ end }}

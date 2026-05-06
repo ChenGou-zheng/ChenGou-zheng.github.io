@@ -17,4 +17,4 @@ lastmod = 2026-05-06T09:57:28+08:00
 [点击这里下载 pdf 版本](/static/docs/bigdataanalysis-project1.pdf)
 
 <!-- 默认用法：宽度 100%，高度 600px -->
-{{< pdf src="/static/docs/bigdataanalysis-project1.pdf" >}}
+{{< pdf src="/docs/bigdataanalysis-project1.pdf" >}}

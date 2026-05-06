@@ -22,7 +22,7 @@ LastUpdateDate: 2025/05/27
 
 ## Religion Sites and Community Life
 
-![[Pasted image 20250527210901.png]]
+![](/attachments/Pasted image 20250527210901.png)
 
 | Chinese Name | English Name                                 | Type              |
 | ------------ | -------------------------------------------- | ----------------- |
@@ -46,7 +46,7 @@ LastUpdateDate: 2025/05/27
 
 ## Cantonese Architecture
 
-![[Pasted image 20250527210744.png|275]]
+![](/attachments/Pasted image 20250527210744.png)
 
 #### The Old Dongshan District ( EastHill )
 
