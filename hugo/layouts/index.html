@@ -1,15 +1,10 @@
 {{ define "main" }}
 <main class="book-page">
   <article class="markdown">
-    <!-- Hero 区域：大型标题与搜索槽位 -->
+    <!-- Hero 区域 -->
     <div class="home-hero">
       <h1>{{ .Site.Title }}</h1>
       <p>{{ .Site.Params.description }}</p>
-      
-      <!-- 这里借用了我们前面埋好的 Pagefind UI -->
-      <div style="margin-top: 2rem; max-width: 600px; margin-inline: auto;">
-        <div id="search"></div>
-      </div>
     </div>
 
     <h2>🏷️ 热点标签分类</h2>

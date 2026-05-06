@@ -11,7 +11,7 @@ baseURL = "https://ChenGou-zheng.github.io/"
   BookTheme = "auto"
   BookToC = true
   # BookSection 决定左侧侧边栏渲染哪个文件夹，如果为空则侧边栏留给我们的自定义 Tag 列表
-  BookSection = "none" 
+  BookSection = "*"
   BookSearch = false
   BookDateFormat = "2006-01-02"
 

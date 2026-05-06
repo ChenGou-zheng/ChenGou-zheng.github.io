@@ -1,0 +1,71 @@
+<script>
+(function () {
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    try { localStorage.setItem('book-theme', theme); } catch (e) {}
+  }
+
+  function getPreferredTheme() {
+    try {
+      var saved = localStorage.getItem('book-theme');
+      if (saved === 'light' || saved === 'dark') return saved;
+    } catch (e) {}
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  }
+
+  var theme = getPreferredTheme();
+  applyTheme(theme);
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var btn = document.getElementById('theme-toggle');
+    if (btn) btn.addEventListener('click', toggleTheme);
+  });
+
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+    if (!localStorage.getItem('book-theme')) {
+      applyTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+})();
+</script>
+
+<script>
+(function () {
+  function initPagefind() {
+    if (!window.PagefindUI || window.__bookPagefindInitialized) return;
+    window.__bookPagefindInitialized = true;
+
+    new window.PagefindUI({
+      element: "#header-pagefind-search",
+      showSubResults: true,
+      excerptLength: 20,
+      highlightParam: "highlight",
+      translations: {
+        placeholder: "搜索全文...",
+        zero_results: "没有找到结果",
+        many_results: "[COUNT] 条结果"
+      }
+    });
+  }
+
+  function loadPagefindScript() {
+    if (window.PagefindUI) { initPagefind(); return; }
+    var script = document.createElement("script");
+    script.src = "/pagefind/pagefind-ui.js";
+    script.defer = true;
+    script.onload = initPagefind;
+    document.head.appendChild(script);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", loadPagefindScript);
+  } else {
+    loadPagefindScript();
+  }
+})();
+</script>

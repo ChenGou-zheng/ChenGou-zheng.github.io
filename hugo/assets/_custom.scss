@@ -1,41 +1,163 @@
 /* hugo/assets/_custom.scss */
 
-/* 1. 全局变量调整：模仿 Material for MkDocs 的色调与尺寸 */
-:root {
-  --font-size-base: 15px;      /* 稍微缩小基础字号提高总体密度 */
-  --book-menu-width: 17rem;    /* 如果菜单层级多了，稍微加宽一点侧边栏 */
+/* ── 手动主题覆盖 ── */
+html[data-theme="light"] {
+  @include theme-light;
+}
+html[data-theme="dark"] {
+  @include theme-dark;
 }
 
-/* 2. 侧边栏菜单：高密度与层次感 */
+/* ── 全局变量 ── */
+:root {
+  --font-size-base: 15px;
+  --book-menu-width: 17rem;
+}
+
+/* ── 顶部栏：桌面端始终可见 ── */
+.book-header {
+  display: flex !important;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--body-background);
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 0;
+  padding: 0 1rem;
+  min-height: 3rem;
+
+  > .flex {
+    width: 100%;
+  }
+
+  h3 {
+    margin: 0 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  label[for="menu-control"] {
+    display: none;
+  }
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+/* ── 顶部搜索框 ── */
+#header-pagefind-search {
+  min-width: 240px;
+}
+
+#header-pagefind-search .pagefind-ui {
+  font-size: 0.85rem;
+}
+
+#header-pagefind-search .pagefind-ui__search-input {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  background: var(--gray-100);
+  color: var(--body-font-color);
+  font-size: 0.85rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#header-pagefind-search .pagefind-ui__search-input:focus {
+  border-color: var(--color-link);
+}
+
+/* Pagefind 搜索结果下拉 */
+#header-pagefind-search .pagefind-ui__results {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 360px;
+  max-height: 60vh;
+  overflow-y: auto;
+  background: var(--body-background);
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  z-index: 100;
+  padding: 0.5rem;
+}
+
+#header-pagefind-search .pagefind-ui__result-excerpt mark {
+  background: #ffef99;
+  color: inherit;
+  padding: 0 2px;
+}
+
+/* 搜索清除按钮 */
+#header-pagefind-search .pagefind-ui__search-clear {
+  display: none !important;
+}
+
+/* ── 主题切换按钮 ── */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  background: var(--gray-100);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0;
+  transition: background 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--gray-200);
+}
+
+html[data-theme="light"] .theme-icon-dark {
+  display: none;
+}
+html[data-theme="dark"] .theme-icon-light {
+  display: none;
+}
+
+/* ── 侧边栏菜单 ── */
 .book-menu nav {
-  font-size: 0.875rem; /* 字号调小为近似 14px */
-  
+  font-size: 0.875rem;
+
   ul {
-    padding-inline-start: 1rem; /* 更紧凑的缩进格式 */
+    padding-inline-start: 1rem;
     margin: 0.25rem 0;
   }
 
-  /* 去除列表默认多余的间距 */
   li {
-    margin-bottom: 0.15rem; /* 更小的行间距 */
+    margin-bottom: 0.15rem;
     line-height: 1.6;
   }
 
-  /* 为所有链接增加柔和的圆角与悬浮反馈 (类似 Material 风格) */
   a {
     display: block;
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     color: var(--body-font-color);
     transition: background-color 0.2s ease, color 0.2s ease;
-    
+
     &:hover {
       background-color: var(--gray-100);
       color: var(--color-link);
       text-decoration: none;
     }
-    
-    /* 当前选中的高亮条目 */
+
     &.active {
       background-color: rgba(var(--color-primary-rgb), 0.1);
       color: var(--color-primary);
@@ -43,8 +165,7 @@
     }
   }
 
-  /* 针对顶层菜单标题增加强调 */
-  > ul > li > a, 
+  > ul > li > a,
   > ul > li > span {
     font-weight: 700;
     font-size: 0.95rem;
@@ -53,22 +174,21 @@
     color: var(--gray-600);
     margin-top: 1rem;
     margin-bottom: 0.25rem;
-    padding-left: 0; // 顶层不用左侧 Padding
-    
+    padding-left: 0;
+
     &:hover {
-      background-color: transparent; // 标题级取消悬浮底色
+      background-color: transparent;
     }
   }
 }
 
-/* 适配黑暗模式的菜单悬浮颜色 */
 @media (prefers-color-scheme: dark) {
   .book-menu nav a:hover {
     background-color: var(--gray-800);
   }
 }
 
-/* 3. 为首页聚合卡片增加样式 */
+/* ── 首页 Hero ── */
 .home-hero {
   text-align: center;
   padding: 4rem 1rem;
@@ -80,12 +200,11 @@
   p { font-size: 1.2rem; color: var(--gray-500); max-width: 600px; margin: 0 auto; }
 }
 
-@media (prefers-color-scheme: dark) {
-  .home-hero {
-    background: linear-gradient(to bottom, var(--gray-800), transparent);
-  }
+html[data-theme="dark"] .home-hero {
+  background: linear-gradient(to bottom, var(--gray-800), transparent);
 }
 
+/* ── 首页标签卡片 ── */
 .home-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -111,8 +230,23 @@
   a { margin-top: 1rem; font-weight: 600; text-decoration: none; }
 }
 
-@media (prefers-color-scheme: dark) {
-  .home-card {
-    border-color: var(--gray-800);
+html[data-theme="dark"] .home-card {
+  border-color: var(--gray-800);
+}
+
+/* ── 移动端适配 ── */
+@media screen and (max-width: 50rem) {
+  .book-header {
+    label[for="menu-control"] {
+      display: block;
+    }
+  }
+
+  #header-pagefind-search {
+    min-width: 120px;
+  }
+
+  .book-header h3 {
+    display: none;
   }
 }
