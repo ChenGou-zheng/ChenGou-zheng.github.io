@@ -34,6 +34,14 @@ jobs:
         with:
           node-version: '24' # 升级到 Node 24
 
+      - name: Cache Pagefind binary
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm/_npx
+            node_modules/.cache
+          key: pagefind-${{ runner.os }}-${{ hashFiles('.github/workflows/deploy.yml') }}
+
       # 第 3 步：构建网站
       # 【核心修改】使用 --source 参数告诉 Hugo 在 hugo 子目录中寻找源文件。
       # 这会从根目录运行，但处理 hugo/ 文件夹，并将结果输出到 hugo/public/。

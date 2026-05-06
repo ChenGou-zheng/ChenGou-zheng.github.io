@@ -51,16 +51,33 @@ html[data-theme="dark"] {
 }
 
 /* ── 顶部搜索框 ── */
+.header-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.search-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
 #header-pagefind-search {
-  min-width: 240px;
+  min-width: 200px;
 }
 
 #header-pagefind-search .pagefind-ui {
   font-size: 0.85rem;
 }
 
+/* 隐藏 Pagefind 内置的搜索图标 */
+#header-pagefind-search .pagefind-ui__search-icon {
+  display: none !important;
+}
 #header-pagefind-search .pagefind-ui__search-input {
-  padding: 0.35rem 0.6rem;
+  padding: 0.35rem 0.5rem;
   border: 1px solid var(--gray-200);
   border-radius: 6px;
   background: var(--gray-100);
@@ -69,6 +86,7 @@ html[data-theme="dark"] {
   width: 100%;
   outline: none;
   transition: border-color 0.2s;
+  background-image: none !important;
 }
 
 #header-pagefind-search .pagefind-ui__search-input:focus {
