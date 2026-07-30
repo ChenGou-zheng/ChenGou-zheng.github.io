@@ -1,0 +1,35 @@
++++
+aliases = []
+tags = ["comments"]
+date = 2025-12-13T11:49:29+08:00
+lastmod = 2026-05-06T09:35:25+08:00
++++
+
+# comments.ShotClean
+
+从 APPSO 开发者自荐看到的一个, 有用但是非必需的自动化工具:
+
+https://github.com/GwoApps/ShotClean-releases/discussions/3
+
+shotclean 软件设计上的失误:
+
+1. 理解成本, 文档问题: motivation, 核心功能, 具体工作流不够独立, 和设计哲学内容糅合在一起, 阅读理解成本太高了.
+2. 执行直觉: 整体功能的交互流和视觉信息流杂糅在一起, 整体界面还是太丰富了, 但是事实上没有什么可以交互的内容, 应该学习 Clash 的傻瓜式配置.
+3. 配置信息: 配置不集中而且可选项过少, 对默认行为的个性化容忍度太少了. UI 交互界面, 体积过于庞大. 对于展示和输入部分区分度不足.
+
+给我的启发和一点成功:
+
+1. 针对足够细微的个性化需求或者是系统的使用体验优化, 作个人的自动化增强补丁. 逻辑上非常简洁地方案.
+2. 使用 Google 的视觉设计语言, 统一了视觉设计形式. 虽然这个 UI 界面并不好用.
+
+Bug:
+
+1. xiaomi 14 pro, cannot scan screenshot, and it's too slow to archive the screenshots into the library.
+
+things need to improve:
+
+1. docs could be more simple: it's a simple tool but with disaster descritption. Appso and the website have the same problem: you messed the guidance, the philosophy, the usage cases and the work mechanics. It's exhausting to understand what you are going to do with this app.
+2. config design. Options are too limited. More customized options are in wanted. Like the intervals to put the screenshot into archive, the auto implementions time.
+3. anti-intuitive design: the information stream is mixed with your interaction stream, which is really annoying. Like the main page, only one botton is interactive but it's immersed with multiple informative squares. It's also not informative to use large box to show nubmers.
+
+You should vibe coding better, please.
